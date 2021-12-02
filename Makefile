@@ -1,0 +1,5 @@
+.PHONY: check
+
+check:
+	prove
+
