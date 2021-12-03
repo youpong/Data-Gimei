@@ -13,13 +13,10 @@ use Test::More tests => 1;
 use Gimei;
 ok( 1 );
 
-#TODO: {
-#  local $TODO = "not implemented" if 0;
+# TODO: read one record for testing.
+my $gimei = Gimei::Name->new();
+$gimei->kanji();
 
-  #my $gimei = Gimei.name;
-  #my $addr = Gimei.addr;
-#}
+#  my $addr = Gimei::Address->new();
 
 #done_testing();
-
-#exit 0;
