@@ -13,8 +13,6 @@ use Test::More tests => 4;
 use Gimei;
 Gimei::Name::load();
 
-# is( $Gimei::Name::names->{'last_name'}->[0]->[0], '' );
-
 my $word = Gimei::Word->new(kanji => '斎藤', hiragana => 'さいとう', katakana => 'サイトウ');
 is( $word->kanji,    '斎藤');
 is( $word->hiragana, 'さいとう');
@@ -22,7 +20,7 @@ is( $word->katakana, 'サイトウ');
 
 # TODO: read one record for testing.
 my $gimei = Gimei::Name->new();
-is( $gimei->kanji(), '佐藤 陽菜' );
+is( $gimei->kanji(), '佐藤 愛斗' );
 
 #  my $addr = Gimei::Address->new();
 

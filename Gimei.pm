@@ -24,9 +24,11 @@ has last_name  => ( is => 'rw' );
 sub BUILD {
     my $self = shift;
 
-    my $fn = Gimei::Word->new(kanji => '陽菜', hiragana => 'はるな',   katakana => 'ハルナ');
-    #my $ln = Gimei::Word->new(kanji => '斎藤', hiragana => 'さいとう', katakana => 'サイトウ');
-    my $ln = Gimei::Word->new(kanji => $names->{'last_name'}->[0]->[0],
+    my $fn = Gimei::Word->new(kanji    => $names->{'first_name'}->{'male'}->[0]->[0],
+			      hiragana => $names->{'first_name'}->{'male'}->[0]->[1],
+			      katakana => $names->{'first_name'}->{'male'}->[0]->[2]);
+
+    my $ln = Gimei::Word->new(kanji    => $names->{'last_name'}->[0]->[0],
 			      hiragana => $names->{'last_name'}->[0]->[1],
 			      katakana => $names->{'last_name'}->[0]->[2]);
     $self->first_name($fn);
