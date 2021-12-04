@@ -8,7 +8,7 @@ use feature ':5.30';
 
 use lib '.';
 
-use Test::More tests => 3;
+use Test::More tests => 4;
 
 use Gimei;
 
@@ -19,7 +19,7 @@ is( $word->katakana, 'サイトウ');
 
 # TODO: read one record for testing.
 my $gimei = Gimei::Name->new();
-$gimei->kanji();
+is( $gimei->kanji(), '斎藤 陽菜' );
 
 #  my $addr = Gimei::Address->new();
 
