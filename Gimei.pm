@@ -15,6 +15,8 @@ package Gimei::Name;
 use Moo;
 #use Moose;
 
+our $names;
+
 has gender     => ( is => 'rw' );
 has first_name => ( is => 'rw' );
 has last_name  => ( is => 'rw' );
@@ -23,13 +25,16 @@ sub BUILD {
     my $self = shift;
 
     my $fn = Gimei::Word->new(kanji => '陽菜', hiragana => 'はるな',   katakana => 'ハルナ');
-    my $ln = Gimei::Word->new(kanji => '斎藤', hiragana => 'さいとう', katakana => 'サイトウ');
+    #my $ln = Gimei::Word->new(kanji => '斎藤', hiragana => 'さいとう', katakana => 'サイトウ');
+    my $ln = Gimei::Word->new(kanji => $names->{'last_name'}->[0]->[0],
+			      hiragana => $names->{'last_name'}->[0]->[1],
+			      katakana => $names->{'last_name'}->[0]->[2]);
     $self->first_name($fn);
     $self->last_name($ln);
 }
 
 sub load {
-#    YAML::LoadFile('data/names.yml');
+    $names = YAML::LoadFile('data/names.yml');
 }
 
 sub kanji {
