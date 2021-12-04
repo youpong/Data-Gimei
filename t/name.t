@@ -8,10 +8,14 @@ use feature ':5.30';
 
 use lib '.';
 
-use Test::More tests => 1;
+use Test::More tests => 3;
 
 use Gimei;
-ok( 1 );
+
+my $word = Gimei::Word->new(kanji => '斎藤', hiragana => 'さいとう', katakana => 'サイトウ');
+is( $word->kanji,    '斎藤');
+is( $word->hiragana, 'さいとう');
+is( $word->katakana, 'サイトウ');
 
 # TODO: read one record for testing.
 my $gimei = Gimei::Name->new();
