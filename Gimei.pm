@@ -36,7 +36,9 @@ sub BUILD {
 }
 
 sub load {
-    $names = YAML::LoadFile('data/names.yml');
+    my $yaml_path = shift // 'data/names.yml';
+
+    $names = YAML::LoadFile($yaml_path);
 }
 
 sub kanji {

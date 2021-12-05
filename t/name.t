@@ -11,14 +11,13 @@ use lib '.';
 use Test::More tests => 4;
 
 use Gimei;
-Gimei::Name::load();
 
 my $word = Gimei::Word->new(kanji => '斎藤', hiragana => 'さいとう', katakana => 'サイトウ');
 is( $word->kanji,    '斎藤');
 is( $word->hiragana, 'さいとう');
 is( $word->katakana, 'サイトウ');
 
-# TODO: read one record for testing.
+Gimei::Name::load('t/names.yml');
 my $gimei = Gimei::Name->new();
 is( $gimei->kanji(), '佐藤 愛斗' );
 
