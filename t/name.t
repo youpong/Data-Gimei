@@ -8,7 +8,7 @@ use feature ':5.30';
 
 use lib '.';
 
-use Test::More tests => 4;
+use Test::More tests => 7;
 
 use Gimei;
 
@@ -16,6 +16,12 @@ my $word = Gimei::Word->new(kanji => '斎藤', hiragana => 'さいとう', katak
 is( $word->kanji,    '斎藤');
 is( $word->hiragana, 'さいとう');
 is( $word->katakana, 'サイトウ');
+
+$word = Gimei::Word->new('斎藤', 'さいとう', 'サイトウ');
+is( $word->kanji,    '斎藤');
+is( $word->hiragana, 'さいとう');
+is( $word->katakana, 'サイトウ');
+
 
 Gimei::Name::load('t/names.yml');
 my $gimei = Gimei::Name->new();

@@ -24,6 +24,9 @@ has last_name  => ( is => 'rw' );
 sub BUILD {
     my $self = shift;
 
+#    my $males = $names->{'first_name'}->{'male'};
+#    print STDERR "nums: " . scalar(@{$males});
+
     my $fn = Gimei::Word->new(kanji    => $names->{'first_name'}->{'male'}->[0]->[0],
 			      hiragana => $names->{'first_name'}->{'male'}->[0]->[1],
 			      katakana => $names->{'first_name'}->{'male'}->[0]->[2]);
@@ -48,8 +51,20 @@ sub kanji {
 
 package Gimei::Word;
 use Moo;
+#use Moose;
 has kanji    => ( is => 'rw' ); # TODO: ro
 has hiragana => ( is => 'rw' ); # TODO: ro
 has katakana => ( is => 'rw' ); # TODO: ro
+
+around BUILDARGS => sub {
+    my $orig  = shift;
+    my $class = shift;
+
+    if ( @_ == 3 ) {
+	return $class->$orig( kanji => $_[0], hiragana => $_[1], katakana => $_[2] );
+    } else {
+	return $class->$orig(@_);
+    }
+};
 
 1;
