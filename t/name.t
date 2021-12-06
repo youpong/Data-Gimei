@@ -8,7 +8,7 @@ use feature ':5.30';
 
 use lib '.';
 
-use Test::More tests => 7;
+use Test::More tests => 9;
 
 use Gimei;
 
@@ -25,7 +25,9 @@ is( $word->katakana, 'サイトウ');
 
 Gimei::Name::load('t/names.yml');
 my $gimei = Gimei::Name->new();
-is( $gimei->kanji(), '佐藤 愛斗' );
+is( $gimei->kanji(),    '佐藤 愛斗' );
+is( $gimei->hiragana(), 'さとう あいと' );
+is( $gimei->katakana(), 'サトウ アイト' );
 
 #  my $addr = Gimei::Address->new();
 
