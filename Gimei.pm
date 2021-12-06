@@ -21,14 +21,19 @@ has gender     => ( is => 'rw' );
 has first_name => ( is => 'rw' );
 has last_name  => ( is => 'rw' );
 
+sub sample {
+    my $array = shift;
+    my $len = @$array;
+    return $array->[rand($len)];
+}
+
 sub BUILD {
     my $self = shift;
 
-#    my $males = $names->{'first_name'}->{'male'};
-#    print STDERR "nums: " . scalar(@{$males});
-
-    $self->first_name( Gimei::Word->new( $names->{'first_name'}->{'male'}->[0] ) );
-    $self->last_name(  Gimei::Word->new( $names->{'last_name'}->[0] ) );
+    my $fn = sample( $names->{'first_name'}->{'male'} );
+    $self->first_name( Gimei::Word->new( $fn ) );
+    my $ln = sample( $names->{'last_name'} );
+    $self->last_name(  Gimei::Word->new( $ln ) );
 }
 
 sub load {
