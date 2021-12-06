@@ -17,7 +17,7 @@ is( $word->kanji,    '斎藤');
 is( $word->hiragana, 'さいとう');
 is( $word->katakana, 'サイトウ');
 
-$word = Gimei::Word->new('斎藤', 'さいとう', 'サイトウ');
+$word = Gimei::Word->new(['斎藤', 'さいとう', 'サイトウ']);
 is( $word->kanji,    '斎藤');
 is( $word->hiragana, 'さいとう');
 is( $word->katakana, 'サイトウ');

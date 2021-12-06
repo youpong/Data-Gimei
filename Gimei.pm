@@ -27,15 +27,8 @@ sub BUILD {
 #    my $males = $names->{'first_name'}->{'male'};
 #    print STDERR "nums: " . scalar(@{$males});
 
-    my $fn = Gimei::Word->new(kanji    => $names->{'first_name'}->{'male'}->[0]->[0],
-			      hiragana => $names->{'first_name'}->{'male'}->[0]->[1],
-			      katakana => $names->{'first_name'}->{'male'}->[0]->[2]);
-
-    my $ln = Gimei::Word->new(kanji    => $names->{'last_name'}->[0]->[0],
-			      hiragana => $names->{'last_name'}->[0]->[1],
-			      katakana => $names->{'last_name'}->[0]->[2]);
-    $self->first_name($fn);
-    $self->last_name($ln);
+    $self->first_name( Gimei::Word->new( $names->{'first_name'}->{'male'}->[0] ) );
+    $self->last_name(  Gimei::Word->new( $names->{'last_name'}->[0] ) );
 }
 
 sub load {
@@ -60,10 +53,12 @@ around BUILDARGS => sub {
     my $orig  = shift;
     my $class = shift;
 
-    if ( @_ == 3 ) {
-	return $class->$orig( kanji => $_[0], hiragana => $_[1], katakana => $_[2] );
+    if ( 'ARRAY' eq ref $_[0] ) {
+        return $class->$orig( kanji    => $_[0]->[0],
+                              hiragana => $_[0]->[1],
+                              katakana => $_[0]->[2] );
     } else {
-	return $class->$orig(@_);
+        return $class->$orig(@_);
     }
 };
 
