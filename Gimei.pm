@@ -30,6 +30,7 @@ sub sample {
 sub BUILD {
     my $self = shift;
 
+    $names //= load();
     my $fn = sample( $names->{'first_name'}->{'male'} );
     $self->first_name( Gimei::Word->new( $fn ) );
     my $ln = sample( $names->{'last_name'} );
