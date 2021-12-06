@@ -47,6 +47,16 @@ sub kanji {
     return $self->last_name()->kanji . " " . $self->first_name()->kanji;
 }
 
+sub hiragana {
+    my $self = shift;
+    return $self->last_name()->hiragana . " " . $self->first_name()->hiragana;
+}
+
+sub katakana {
+    my $self = shift;
+    return $self->last_name()->katakana . " " . $self->first_name()->katakana;
+}
+
 package Gimei::Word;
 use Moo;
 #use Moose;
