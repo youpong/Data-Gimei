@@ -1,3 +1,7 @@
+package Gimei;
+
+our $VERSION = '0.01';
+
 use strict;
 use warnings;
 
@@ -9,7 +13,6 @@ use feature ':5.30';
 use YAML;
 
 package Gimei::Name;
-
 # cannot use BUILD
 # use Class::Accessor 'antlers';
 use Moo;

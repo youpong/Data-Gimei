@@ -5,18 +5,18 @@ use ExtUtils::MakeMaker;
 
 my %WriteMakefileArgs = (
     NAME             => 'Gimei',
-    AUTHOR           => q{youpong <youpong@cpan.org>},
+    AUTHOR           => q{youpong <youpong@cpan.org>}, # TODO
     VERSION_FROM     => 'lib/Gimei.pm',
     ABSTRACT_FROM    => 'lib/Gimei.pm',
-    LICENSE          => 'artistic_2',
-    MIN_PERL_VERSION => '5.006',
+    LICENSE          => 'artistic_2', # TODO
+    MIN_PERL_VERSION => '5.006', # TODO
     CONFIGURE_REQUIRES => {
         'ExtUtils::MakeMaker' => '0',
     },
     TEST_REQUIRES => {
-        'Test::More' => '0',
+        'Test::More' => '0', # TODO
     },
-    PREREQ_PM => {
+    PREREQ_PM => { # TODO
         #'ABC'              => '1.6',
         #'Foo::Bar::Module' => '5.0401',
     },
