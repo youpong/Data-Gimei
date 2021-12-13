@@ -1,3 +1,4 @@
+[![Actions Status](https://github.com/youpong/pl-gimei/workflows/test/badge.svg)](https://github.com/youpong/pl-gimei/actions)
 # NAME
 
 Data::Gimei - a Perl port of Ruby's gimei.
