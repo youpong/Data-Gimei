@@ -1,10 +1,7 @@
-# pl-gimei
+# NAME
 
-```bash
-$ make check
-```
+Gimei - The great new Gimei!
 
-```
-$ cpanm YAML
-```
-Moo
+# AUTHOR
+
+NAKAJIMA Yusaku < yupong7@gmail.com >

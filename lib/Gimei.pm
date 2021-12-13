@@ -6,11 +6,14 @@ our $VERSION = '0.01';
 
 Gimei - The great new Gimei!
 
+=head1 AUTHOR
+
+NAKAJIMA Yusaku E<lt> yupong7@gmail.com E<gt>
+
 =cut
 
 use strict;
 use warnings;
-
 use English;
 use utf8;
 
