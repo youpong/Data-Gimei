@@ -8,7 +8,7 @@ Gimei - The great new Gimei!
 
 =head1 AUTHOR
 
-NAKAJIMA Yusaku E<lt> yupong7@gmail.com E<gt>
+NAKAJIMA Yusaku E<lt> example@example.com E<gt>
 
 =cut
 
