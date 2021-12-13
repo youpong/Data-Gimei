@@ -1,12 +1,12 @@
 {
-   "abstract" : "The great new Gimei!",
+   "abstract" : "a Perl port of Ruby's gimei.",
    "author" : [
       "NAKAJIMA Yusaku < example@example.com >"
    ],
    "dynamic_config" : 0,
    "generated_by" : "Minilla/v3.1.12, CPAN::Meta::Converter version 2.150010",
    "license" : [
-      "unknown"
+      "perl_5"
    ],
    "meta-spec" : {
       "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
