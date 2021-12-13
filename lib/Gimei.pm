@@ -2,6 +2,12 @@ package Gimei;
 
 our $VERSION = '0.01';
 
+=head1 NAME
+
+Gimei - The great new Gimei!
+
+=cut
+
 use strict;
 use warnings;
 
@@ -10,16 +16,14 @@ use utf8;
 
 use feature ':5.30';
 
-use YAML;
-
 package Gimei::Name;
-# cannot use BUILD
-# use Class::Accessor 'antlers';
-use Moo;
-#use Moose;
 
 our $names;
 
+use File::Share ':all';
+use YAML;
+
+use Moo;
 has gender     => ( is => 'rw' );
 has first_name => ( is => 'rw' );
 has last_name  => ( is => 'rw' );
@@ -41,7 +45,7 @@ sub BUILD {
 }
 
 sub load {
-    my $yaml_path = shift // 'data/names.yml';
+    my $yaml_path = shift // dist_file('Gimei', 'names.yml');
 
     $names = YAML::LoadFile($yaml_path);
 }
