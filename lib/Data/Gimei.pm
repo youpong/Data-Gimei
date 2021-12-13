@@ -1,4 +1,4 @@
-package Gimei;
+package Data::Gimei;
 
 our $VERSION = '0.01';
 
@@ -19,7 +19,7 @@ use utf8;
 
 use feature ':5.30';
 
-package Gimei::Name;
+package Data::Gimei::Name;
 
 our $names;
 
@@ -42,13 +42,13 @@ sub BUILD {
 
     $names //= load();
     my $fn = sample( $names->{'first_name'}->{'male'} );
-    $self->first_name( Gimei::Word->new( $fn ) );
+    $self->first_name( Data::Gimei::Word->new( $fn ) );
     my $ln = sample( $names->{'last_name'} );
-    $self->last_name(  Gimei::Word->new( $ln ) );
+    $self->last_name(  Data::Gimei::Word->new( $ln ) );
 }
 
 sub load {
-    my $yaml_path = shift // dist_file('Gimei', 'names.yml');
+    my $yaml_path = shift // dist_file('Data-Gimei', 'names.yml');
 
     $names = YAML::LoadFile($yaml_path);
 }
@@ -68,9 +68,8 @@ sub katakana {
     return $self->last_name()->katakana . " " . $self->first_name()->katakana;
 }
 
-package Gimei::Word;
+package Data::Gimei::Word;
 use Moo;
-#use Moose;
 has kanji    => ( is => 'rw' ); # TODO: ro
 has hiragana => ( is => 'rw' ); # TODO: ro
 has katakana => ( is => 'rw' ); # TODO: ro
