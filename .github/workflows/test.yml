@@ -29,5 +29,5 @@ jobs:
 
       # Runs a single command using the runners shell
       - run: perl -V
-      # - run: cpanm --installdeps .
+      - run: cpanm --installdeps .
       - run: minil test
