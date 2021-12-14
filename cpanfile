@@ -1,5 +1,4 @@
 requires 'File::Share';
-requires 'Gimei';
 requires 'Moo';
 requires 'YAML';
 requires 'feature';
