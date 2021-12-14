@@ -1,6 +1,6 @@
 package Data::Gimei;
 
-our $VERSION = '0.01';
+use version 0.77; our $VERSION = version->declare("v0.0.1");
 
 =encoding utf-8
 
