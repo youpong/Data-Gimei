@@ -42,7 +42,12 @@
       },
       "runtime" : {
          "requires" : {
-            "perl" : "5.008001"
+            "File::Share" : "0",
+            "Moo" : "0",
+            "YAML" : "0",
+            "feature" : "0",
+            "perl" : "5.010_001",
+            "version" : "0.77"
          }
       },
       "test" : {
@@ -63,9 +68,10 @@
          "web" : "https://github.com/youpong/pl-gimei"
       }
    },
-   "version" : "0.01",
+   "version" : "v0.0.1",
    "x_contributors" : [
-      "NAKAJIMA Yusaku <example@example.com>"
+      "NAKAJIMA Yusaku <example@example.com>",
+      "youpong <43817652+youpong@users.noreply.github.com>"
    ],
    "x_serialization_backend" : "JSON::PP version 4.02",
    "x_static_install" : 1
