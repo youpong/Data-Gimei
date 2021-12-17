@@ -54,7 +54,7 @@ package Data::Gimei::Name;
 our $names;
 
 use File::Share ':all';
-use YAML;
+use YAML::XS;
 
 use Moo;
 has gender     => ( is => 'rw' );
@@ -80,7 +80,7 @@ sub BUILD {
 sub load {
     my $yaml_path = shift // dist_file('Data-Gimei', 'names.yml');
 
-    $names = YAML::LoadFile($yaml_path);
+    $names = YAML::XS::LoadFile($yaml_path);
 }
 
 sub kanji {
