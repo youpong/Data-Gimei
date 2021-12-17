@@ -28,7 +28,8 @@
    "prereqs" : {
       "configure" : {
          "requires" : {
-            "Module::Build::Tiny" : "0.035"
+            "Module::Build::Tiny" : "0.035",
+            "perl" : "5.010_001"
          }
       },
       "develop" : {
@@ -44,9 +45,8 @@
          "requires" : {
             "File::Share" : "0",
             "Moo" : "0",
-            "YAML" : "0",
+            "YAML::XS" : "0",
             "feature" : "0",
-            "perl" : "5.010_001",
             "version" : "0.77"
          }
       },
@@ -68,9 +68,9 @@
          "web" : "https://github.com/youpong/pl-gimei"
       }
    },
-   "version" : "v0.0.1",
+   "version" : "v0.0.2",
    "x_contributors" : [
-      "NAKAJIMA Yusaku <example@example.com>",
+      "NAKAJIMA Yusaku <yupong7@example.com>",
       "youpong <43817652+youpong@users.noreply.github.com>"
    ],
    "x_serialization_backend" : "JSON::PP version 4.02",

@@ -1,5 +1,9 @@
 Revision history for Perl extension Data-Gimei
 
-{{$NEXT}}
+v0.0.2
+
+    - Change YAML module YAML::XS.
+
+v0.0.1
 
     - original version
