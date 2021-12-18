@@ -83,10 +83,11 @@ sub BUILD {
 
     $names //= load();
 
-    my $gender = sample(['male', 'female']);
-    $self->gender( $gender );
-    my $fn = sample( $names->{'first_name'}->{$gender} );
+    $self->gender( sample(['male', 'female']) ) unless $self->gender;
+
+    my $fn = sample( $names->{'first_name'}->{$self->gender} );
     $self->first_name( Data::Gimei::Word->new( $fn ) );
+
     my $ln = sample( $names->{'last_name'} );
     $self->last_name(  Data::Gimei::Word->new( $ln ) );
 }

@@ -26,7 +26,7 @@ is( $word->katakana, 'スズキ' );
 is( $word->romaji,   'Suzuki' );
 
 Data::Gimei::Name::load('t/names.yml');
-my $gimei = Data::Gimei::Name->new();
+my $gimei = Data::Gimei::Name->new(gender => 'male');
 is( $gimei->kanji(),    '佐藤 愛斗' );
 is( $gimei->hiragana(), 'さとう あいと' );
 is( $gimei->katakana(), 'サトウ アイト' );
