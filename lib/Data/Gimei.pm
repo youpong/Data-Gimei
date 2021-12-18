@@ -71,7 +71,10 @@ sub BUILD {
     my $self = shift;
 
     $names //= load();
-    my $fn = sample( $names->{'first_name'}->{'male'} );
+
+    my $gender = sample(['male', 'female']);
+    $self->gender( $gender );
+    my $fn = sample( $names->{'first_name'}->{$gender} );
     $self->first_name( Data::Gimei::Word->new( $fn ) );
     my $ln = sample( $names->{'last_name'} );
     $self->last_name(  Data::Gimei::Word->new( $ln ) );
