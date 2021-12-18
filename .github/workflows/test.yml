@@ -19,7 +19,7 @@ jobs:
       - uses: shogo82148/actions-setup-perl@v1
         with:
           perl-version: ${{ matrix.perl }}
-      - run: cpanm -n --with-configure --with-test --installdeps .
+      - run: cpanm -n --with-configure --installdeps .
       - run: |
           perl Build.PL
           ./Build build
