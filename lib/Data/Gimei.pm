@@ -60,8 +60,6 @@ NAKAJIMA Yusaku E<lt> example@example.com E<gt>
 
 =cut
 
-use strict;
-use warnings;
 use English;
 use utf8;
 
