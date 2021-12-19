@@ -35,6 +35,13 @@ supports furigana, phonetic renderings of kanji.
 
 The project name comes from Japanese '偽名' means a false name.
 
+# INSTALL
+
+This module is not available at CPAN yet.  You can install this module
+by following the step below.
+
+$ cpanm Data-Gimei-v0.0.2.tar.gz
+
 # LICENSE
 
 Copyright (C) NAKAJIMA Yusaku.
