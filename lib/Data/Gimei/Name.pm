@@ -7,6 +7,8 @@ use File::Share ':all';
 use YAML::XS;
 
 use Moo;
+use namespace::clean;
+
 has gender     => ( is => 'rw' );
 has first_name => ( is => 'rw' );
 has last_name  => ( is => 'rw' );

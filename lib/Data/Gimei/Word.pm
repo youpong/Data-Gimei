@@ -5,6 +5,8 @@ use utf8;
 use feature ':5.30';
 
 use Moo;
+use namespace::clean;
+
 has kanji    => ( is => 'rw' ); # TODO: ro
 has hiragana => ( is => 'rw' ); # TODO: ro
 has katakana => ( is => 'rw' ); # TODO: ro
