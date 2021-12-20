@@ -7,10 +7,10 @@ use feature ':5.30';
 use Moo;
 use namespace::clean;
 
-has kanji    => ( is => 'rw' ); # TODO: ro
-has hiragana => ( is => 'rw' ); # TODO: ro
-has katakana => ( is => 'rw' ); # TODO: ro
-has romaji   => ( is => 'rw' ); # TODO: ro
+has kanji    => ( is => 'ro' );
+has hiragana => ( is => 'ro' );
+has katakana => ( is => 'ro' );
+has romaji   => ( is => 'ro' );
 
 around BUILDARGS => sub {
     my $orig  = shift;
