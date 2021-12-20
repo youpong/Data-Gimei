@@ -3,6 +3,7 @@ package Data::Gimei;
 use version 0.77; our $VERSION = version->declare("v0.0.2");
 
 use Data::Gimei::Name;
+use Data::Gimei::Word;
 
 =encoding utf-8
 

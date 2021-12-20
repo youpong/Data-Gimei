@@ -2,11 +2,7 @@ package Data::Gimei::Name;
 
 use English;
 use utf8;
-
 use feature ':5.30';
-
-our $names;
-
 use File::Share ':all';
 use YAML::XS;
 
@@ -14,6 +10,8 @@ use Moo;
 has gender     => ( is => 'rw' );
 has first_name => ( is => 'rw' );
 has last_name  => ( is => 'rw' );
+
+our $names;
 
 sub sample {
     my $array = shift;

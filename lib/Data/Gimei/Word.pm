@@ -1,4 +1,9 @@
 package Data::Gimei::Word;
+
+use English;
+use utf8;
+use feature ':5.30';
+
 use Moo;
 has kanji    => ( is => 'rw' ); # TODO: ro
 has hiragana => ( is => 'rw' ); # TODO: ro
