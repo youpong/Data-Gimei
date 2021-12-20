@@ -9,9 +9,9 @@ use YAML::XS;
 use Moo;
 use namespace::clean;
 
-has gender     => ( is => 'rw' );
-has first_name => ( is => 'rw' );
-has last_name  => ( is => 'rw' );
+has gender     => ( is => 'ro' );
+has first_name => ( is => 'ro' );
+has last_name  => ( is => 'ro' );
 
 our $names;
 
@@ -21,19 +21,20 @@ sub sample {
     return $array->[rand($len)];
 }
 
-sub BUILD {
-    my $self = shift;
+around BUILDARGS => sub {
+    my $orig = shift;
+    my $class = shift;
+    my %args = @_;
 
     $names //= load();
 
-    $self->gender( sample(['male', 'female']) ) unless $self->gender;
-
-    my $fn = sample( $names->{'first_name'}->{$self->gender} );
-    $self->first_name( Data::Gimei::Word->new( $fn ) );
-
-    my $ln = sample( $names->{'last_name'} );
-    $self->last_name(  Data::Gimei::Word->new( $ln ) );
-}
+    $args{'gender'} //= sample( ['male', 'female'] );
+    $args{'first_name'} = Data::Gimei::Word->new(
+                              sample( $names->{'first_name'}->{ $args{'gender'} } ) );
+    $args{'last_name'}  = Data::Gimei::Word->new(
+                              sample( $names->{'last_name'} ) );
+    return $class->$orig(%args);
+};
 
 sub load {
     my $yaml_path = shift // dist_file('Data-Gimei', 'names.yml');
