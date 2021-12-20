@@ -28,11 +28,11 @@ around BUILDARGS => sub {
 
     $names //= load();
 
-    $args{'gender'} //= sample( ['male', 'female'] );
-    $args{'first_name'} = Data::Gimei::Word->new(
-                              sample( $names->{'first_name'}->{ $args{'gender'} } ) );
-    $args{'last_name'}  = Data::Gimei::Word->new(
-                              sample( $names->{'last_name'} ) );
+    $args{'gender'}     //= sample( ['male', 'female'] );
+    $args{'first_name'}   = Data::Gimei::Word->new(
+                              sample( $names->{'first_name'}->{$args{'gender'}} ));
+    $args{'last_name'}    = Data::Gimei::Word->new(
+                              sample( $names->{'last_name'} ));
     return $class->$orig(%args);
 };
 
