@@ -1,6 +1,6 @@
 package Data::Gimei;
 
-use version 0.77; our $VERSION = version->declare("v0.0.2");
+use version 0.77; our $VERSION = version->declare("v0.0.3");
 
 use Data::Gimei::Name;
 use Data::Gimei::Word;
