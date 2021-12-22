@@ -4,6 +4,8 @@ use English;
 use utf8;
 use feature ':5.30';
 
+use Lingua::JA::Kana;
+
 use Moo;
 use namespace::clean;
 
@@ -16,16 +18,28 @@ around BUILDARGS => sub {
     my $orig  = shift;
     my $class = shift;
 
+    my %args;
     if ( 'ARRAY' eq ref $_[0] ) {
-        return $class->$orig( kanji    => $_[0]->[0],
-                              hiragana => $_[0]->[1],
-                              katakana => $_[0]->[2],
-                              romaji   => ucfirst $_[0]->[3] );
+        %args = ( kanji    => $_[0]->[0],
+                  hiragana => $_[0]->[1],
+                  katakana => $_[0]->[2],
+                  romaji   => $_[0]->[3] );
     } else {
-        my %args = @_;
-        $args{'romaji'} = ucfirst( $args{'romaji'} );
-        return $class->$orig(%args);
+        %args = @_;
     }
+
+    $args{'romaji'} = kana2romaji($args{'hiragana'}) if !$args{'romaji'};
+    $args{'romaji'} = ucfirst( $args{'romaji'} );
+    return $class->$orig(%args);
 };
 
+sub equals {
+    my $self   = shift;
+    my $target = shift;
+
+    return $self->kanji    eq $target->kanji    &&
+           $self->hiragana eq $target->hiragana &&
+           $self->katakana eq $target->katakana &&
+           $self->romaji   eq $target->romaji;
+}
 1;
