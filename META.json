@@ -44,7 +44,7 @@
       "runtime" : {
          "requires" : {
             "File::Share" : "0",
-            "Lingua::JA::Kana" : "0",
+            "Lingua::JA::Moji" : "0",
             "Moo" : "0",
             "YAML::XS" : "0",
             "feature" : "0",

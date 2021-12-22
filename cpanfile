@@ -1,5 +1,5 @@
 requires 'File::Share';
-requires 'Lingua::JA::Kana';
+requires 'Lingua::JA::Moji';
 requires 'Moo';
 requires 'YAML::XS';
 requires 'feature';
