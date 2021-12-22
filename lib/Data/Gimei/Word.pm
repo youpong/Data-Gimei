@@ -4,7 +4,7 @@ use English;
 use utf8;
 use feature ':5.30';
 
-use Lingua::JA::Moji 'kana2romaji';
+use Lingua::JA::Moji qw/kana2katakana kana2romaji/;
 
 use Moo;
 use namespace::clean;
@@ -28,6 +28,9 @@ around BUILDARGS => sub {
         %args = @_;
     }
 
+    if (!$args{'katakana'}) {
+        $args{'katakana'} = kana2katakana($args{'hiragana'});
+    }
     if (!$args{'romaji'}) {
         $args{'romaji'} = kana2romaji($args{'hiragana'}, {style => 'common', ve_type=>'none'});
     }

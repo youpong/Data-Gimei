@@ -11,11 +11,10 @@ use Data::Gimei;
 
 my $word;
 
-# equals()
-my $word_t = $word = Data::Gimei::Word->new(['田中', 'たなか', 'タナカ', 'tanaka']);
-my $word_s = $word = Data::Gimei::Word->new(['鈴木', 'すずき', 'スズキ', 'suzuki']);
+# test Word->equals()
+my $word_t = Data::Gimei::Word->new(['田中', 'たなか', 'タナカ', 'tanaka']);
 
-ok( $word_t->equals($word_t) );
-ok( ! $word_t->equals($word_s) );
+ok  $word_t->equals(Data::Gimei::Word->new(['田中', 'たなか', 'タナカ', 'tanaka']));
+ok !$word_t->equals(Data::Gimei::Word->new(['鈴木', 'すずき', 'スズキ', 'suzuki']));
 
 done_testing();
