@@ -26,7 +26,7 @@ around BUILDARGS => sub {
         %args = @_;
     }
 
-    $args{'romaji'} = ucfirst( $args{'romaji'} );
+    $args{'romaji'} = ucfirst( $args{'romaji'} ) if $args{'romaji'};
     return $class->$orig(%args);
 };
 

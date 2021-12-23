@@ -5,28 +5,46 @@ Data::Gimei - a Perl port of Ruby's gimei.
 
 # SYNOPSIS
 
-    use Data::Gimei;
     use utf8;
     binmode STDOUT, ":utf8";
-    use feature ':5.10';
+    use feature ':5.30';
 
-    my $gimei = Data::Gimei::Name->new();
+    use Data::Gimei;
+    my $name = Data::Gimei::Name->new();
+                                     # for example
+    say $name->kanji;                # "斎藤陽菜"
+    say $name->hiragana;             # "さいとうはるな"
+    say $name->katakana;             # "サイトウハルナ"
+    say $name->romaji;               # "Haruna Saito"
 
-                                      # an example
-    say $gimei->kanji;                # "斎藤 陽菜"
-    say $gimei->hiragana;             # "さいとう はるな"
-    say $gimei->katakana;             # "サイトウ ハルナ"
-    say $gimei->romaji;               # "Haruna Saito"
+    say $name->last_name->kanji;     # "斎藤"
+    say $name->last_name->hiragana;  # "さいとう"
+    say $name->last_name->katakana;  # "サイトウ"
+    say $name->last_name->romaji;    # "Saito"
 
-    say $gimei->last_name->kanji;     # "斎藤"
-    say $gimei->last_name->hiragana;  # "さいとう"
-    say $gimei->last_name->katakana;  # "サイトウ"
-    say $gimei->last_name->romaji;    # "Saito"
+    say $name->first_name->kanji;    # "陽菜"
+    say $name->first_name->hiragana; # "はるな"
+    say $name->first_name->katakana; # "ハルナ"
+    say $name->first_name->romaji;   # "Haruna"
 
-    say $gimei->first_name->kanji;    # "陽菜"
-    say $gimei->first_name->hiragana; # "はるな"
-    say $gimei->first_name->katakana; # "ハルナ"
-    say $gimei->first_name->romaji;   # "Haruna"
+    say $name->gender;               # "female"
+
+    my $addr = Data::Gimei::Address->new();
+    say $addr->kanji;                # "北海道札幌市中央区モエレ沼公園"
+    say $addr->hiragana;             # "ほっかいどうさっぽろしちゅうおうくもえれぬまこうえん"
+    say $addr->katakana;             # "ホッカイドウサッポロシチュウオウクモエレヌマコウエン"
+
+    say $addr->prefecture->kanji;    # "北海道"
+    say $addr->prefecture->hiragana; # "ほっかいどう"
+    say $addr->prefecture->katakana; # "ホッカイドウ"
+
+    say $addr->city->kanji;          # "札幌市中央区"
+    say $addr->city->hiragana;       # "さっぽろしちゅうおうく"
+    say $addr->city->katakana;       # "サッポロシチュウオウク"
+
+    say $addr->town->kanji;          # "モエレ沼公園"
+    say $addr->town->hiragana;       # "もえれぬまこうえん"
+    say $addr->town->katakana;       # "モエレヌマコウエン"
 
 # DESCRIPTION
 

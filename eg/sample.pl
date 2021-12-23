@@ -25,3 +25,20 @@ say $name->first_name->katakana; # "ハルナ"
 say $name->first_name->romaji;   # "Haruna"
 
 say $name->gender;               # "female"
+
+my $addr = Data::Gimei::Address->new();
+say $addr->kanji;                # "北海道札幌市中央区モエレ沼公園"
+say $addr->hiragana;             # "ほっかいどうさっぽろしちゅうおうくもえれぬまこうえん"
+say $addr->katakana;             # "ホッカイドウサッポロシチュウオウクモエレヌマコウエン"
+
+say $addr->prefecture->kanji;    # "北海道"
+say $addr->prefecture->hiragana; # "ほっかいどう"
+say $addr->prefecture->katakana; # "ホッカイドウ"
+
+say $addr->city->kanji;          # "札幌市中央区"
+say $addr->city->hiragana;       # "さっぽろしちゅうおうく"
+say $addr->city->katakana;       # "サッポロシチュウオウク"
+
+say $addr->town->kanji;          # "モエレ沼公園"
+say $addr->town->hiragana;       # "もえれぬまこうえん"
+say $addr->town->katakana;       # "モエレヌマコウエン"
