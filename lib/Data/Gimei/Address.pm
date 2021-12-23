@@ -15,13 +15,6 @@ has town       => ( is => 'ro' );
 
 our $addresses;
 
-# TODO:
-sub sample {
-    my $array = shift;
-    my $len = @$array;
-    return $array->[rand($len)];
-}
-
 around BUILDARGS => sub {
     my $orig = shift;
     my $class = shift;
@@ -30,11 +23,11 @@ around BUILDARGS => sub {
     $addresses //= load();
 
     $args{'prefecture'} = Data::Gimei::Word->new(
-                              sample( $addresses->{'addresses'}->{'prefecture'} ));
+                            Data::Gimei::sample( $addresses->{'addresses'}->{'prefecture'} ));
     $args{'city'}       = Data::Gimei::Word->new(
-                              sample( $addresses->{'addresses'}->{'city'} ));
+                            Data::Gimei::sample( $addresses->{'addresses'}->{'city'} ));
     $args{'town'}       = Data::Gimei::Word->new(
-                              sample( $addresses->{'addresses'}->{'town'} ));
+                            Data::Gimei::sample( $addresses->{'addresses'}->{'town'} ));
     return $class->$orig(%args);
 };
 

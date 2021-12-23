@@ -15,12 +15,6 @@ has last_name  => ( is => 'ro' );
 
 our $names;
 
-sub sample {
-    my $array = shift;
-    my $len = @$array;
-    return $array->[rand($len)];
-}
-
 around BUILDARGS => sub {
     my $orig = shift;
     my $class = shift;
@@ -28,11 +22,11 @@ around BUILDARGS => sub {
 
     $names //= load();
 
-    $args{'gender'}     //= sample( ['male', 'female'] );
+    $args{'gender'}     //= Data::Gimei::sample( ['male', 'female'] );
     $args{'first_name'}   = Data::Gimei::Word->new(
-                              sample( $names->{'first_name'}->{$args{'gender'}} ));
+                              Data::Gimei::sample( $names->{'first_name'}->{$args{'gender'}} ));
     $args{'last_name'}    = Data::Gimei::Word->new(
-                              sample( $names->{'last_name'} ));
+                              Data::Gimei::sample( $names->{'last_name'} ));
     return $class->$orig(%args);
 };
 
