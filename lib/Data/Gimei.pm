@@ -6,6 +6,13 @@ use Data::Gimei::Name;
 use Data::Gimei::Address;
 use Data::Gimei::Word;
 
+sub sample {
+    my $array = shift;
+    my $len = @$array;
+    return $array->[rand($len)];
+}
+1;
+
 =encoding utf-8
 
 =head1 NAME
@@ -81,10 +88,3 @@ it under the same terms as Perl itself.
 NAKAJIMA Yusaku E<lt> example@example.com E<gt>
 
 =cut
-sub sample {
-    my $array = shift;
-    my $len = @$array;
-    return $array->[rand($len)];
-}
-
-1;
