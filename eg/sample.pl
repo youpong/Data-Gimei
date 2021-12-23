@@ -9,9 +9,9 @@ use feature ':5.30';
 use Data::Gimei;
 my $name = Data::Gimei::Name->new();
                                  # for example
-say $name->kanji;                # "斎藤陽菜"
-say $name->hiragana;             # "さいとうはるな"
-say $name->katakana;             # "サイトウハルナ"
+say $name->kanji;                # "斎藤 陽菜"
+say $name->hiragana;             # "さいとう はるな"
+say $name->katakana;             # "サイトウ ハルナ"
 say $name->romaji;               # "Haruna Saito"
 
 say $name->last_name->kanji;     # "斎藤"
