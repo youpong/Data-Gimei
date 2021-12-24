@@ -6,14 +6,26 @@ use Data::Gimei::Name;
 use Data::Gimei::Address;
 use Data::Gimei::Word;
 
-sub set_random {
-    # to be implmented.
+my $seed = srand();
+
+sub set_random_seed {
+    $seed = shift;
+}
+
+sub random {
+    my $size = shift;
+
+    srand($seed);
+    my $ret = int(rand($size));
+    $seed = srand($seed);
+
+    return $ret;
 }
 
 sub sample {
     my $array = shift;
     my $len = @$array;
-    return $array->[rand($len)];
+    return $array->[random($len)];
 }
 1;
 
