@@ -6,6 +6,10 @@ use Data::Gimei::Name;
 use Data::Gimei::Address;
 use Data::Gimei::Word;
 
+sub set_random {
+    # to be implmented.
+}
+
 sub sample {
     my $array = shift;
     my $len = @$array;
