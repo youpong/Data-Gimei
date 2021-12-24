@@ -53,6 +53,24 @@ supports furigana, phonetic renderings of kanji.
 
 The project name comes from Japanese '偽名' means a false name.
 
+## Deterministic Random
+
+Data::Gimei supports seeding of its pseudo-random number generator to provide deterministic
+output of repeated method calls.
+
+    Data::Gimei::set_random_seed(42);
+    my $name = Data::Gimei::Name->new();
+    $name->kanji;                    # "村瀬 零"
+    $address = Data::Gimei::Address->new();
+    $address->kanji;                 # "沖縄県那覇市祝子町"
+
+    Data::Gimei::set_random_seed(42);
+    my $name = Data::Gimei::Name->new();
+    $name->kanji;                    # "村瀬 零"
+    rand;                            # Do not change result by calling rand()
+    $address = Data::Gimei::Address->new();
+    $address->kanji;                 # "沖縄県那覇市祝子町"
+
 # INSTALL
 
 This module is not available at CPAN yet.  You can install this module
