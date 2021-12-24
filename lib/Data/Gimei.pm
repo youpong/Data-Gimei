@@ -82,10 +82,9 @@ by following the step below.
 
 =head1 LICENSE
 
-Copyright (C) NAKAJIMA Yusaku.
+MIT
 
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
+Dictionary YAML file is generated from naist-jdic.
 
 =head1 AUTHOR
 
