@@ -1,6 +1,5 @@
 package Data::Gimei::Name;
 
-use English;
 use utf8;
 use feature ':5.30';
 use File::Share ':all';
