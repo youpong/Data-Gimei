@@ -6,30 +6,32 @@ use feature ':5.30';
 use Test::More;
 use Data::Gimei;
 
-my (@results, @results2, @results3);
+my (@expected, @actual);
 
 Data::Gimei::set_random_seed(42);
 my $name = Data::Gimei::Name->new();
-push @results, $name->kanji;
+push @expected, $name->kanji;
 my $address = Data::Gimei::Address->new();
-push @results, $address->kanji;
+push @expected, $address->kanji;
 
 # Deteministic random returns same result
 Data::Gimei::set_random_seed(42);
 $name = Data::Gimei::Name->new();
-push @results2, $name->kanji;
+push @actual, $name->kanji;
 $address = Data::Gimei::Address->new();
-push @results2, $address->kanji;
-ok Test::More::eq_array(\@results, \@results2);
+push @actual, $address->kanji;
+ok Test::More::eq_array(\@expected, \@actual);
+
 
 # Deteministic random DOES NOT depend on calling rand()
+@actual = ();
 Data::Gimei::set_random_seed(42);
 rand;
 $name = Data::Gimei::Name->new();
-push @results3, $name->kanji;
+push @actual, $name->kanji;
 rand;
 $address = Data::Gimei::Address->new();
-push @results3, $address->kanji;
-ok Test::More::eq_array(\@results, \@results3);
+push @actual, $address->kanji;
+ok Test::More::eq_array(\@expected, \@actual);
 
 done_testing();
