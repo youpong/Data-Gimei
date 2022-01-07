@@ -1,27 +1,35 @@
+# Deterministic random test
+
 use strict;
 use warnings;
-
-use English;
-use utf8;
 use feature ':5.30';
-
 use Test::More;
-
 use Data::Gimei;
 
-my @results;
-Data::Gimei::set_random_seed(42);
-my $name = Data::Gimei::Name->new();
-$results[0] = $name->kanji;
-my $address = Data::Gimei::Address->new();
-$results[1] = $address->kanji;
+my (@results, @results2, @results3);
 
 Data::Gimei::set_random_seed(42);
-rand; # should not change result by calling rand()
+my $name = Data::Gimei::Name->new();
+push @results, $name->kanji;
+my $address = Data::Gimei::Address->new();
+push @results, $address->kanji;
+
+# Deteministic random returns same result
+Data::Gimei::set_random_seed(42);
 $name = Data::Gimei::Name->new();
-is $results[0], $name->kanji;
-rand; # should not change result by calling rand()
+push @results2, $name->kanji;
 $address = Data::Gimei::Address->new();
-is $results[1], $address->kanji;
+push @results2, $address->kanji;
+ok Test::More::eq_array(\@results, \@results2);
+
+# Deteministic random DOES NOT depend on calling rand()
+Data::Gimei::set_random_seed(42);
+rand;
+$name = Data::Gimei::Name->new();
+push @results3, $name->kanji;
+rand;
+$address = Data::Gimei::Address->new();
+push @results3, $address->kanji;
+ok Test::More::eq_array(\@results, \@results3);
 
 done_testing();
