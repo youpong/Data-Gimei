@@ -10,6 +10,10 @@ on configure => sub {
     requires 'perl', '5.008_001';
 };
 
+on develop => sub {
+    requires 'Perl::Tidy';
+};
+
 on test => sub {
     requires 'Test::More', '0.98';
 };
