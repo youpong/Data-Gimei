@@ -15,22 +15,22 @@ has last_name  => ( is => 'ro' );
 our $names;
 
 around BUILDARGS => sub {
-    my $orig = shift;
+    my $orig  = shift;
     my $class = shift;
-    my %args = @_;
+    my %args  = @_;
 
     $names //= load();
 
-    $args{'gender'}     //= Data::Gimei::sample( ['male', 'female'] );
-    $args{'first_name'}   = Data::Gimei::Word->new(
-                              Data::Gimei::sample( $names->{'first_name'}->{$args{'gender'}} ));
-    $args{'last_name'}    = Data::Gimei::Word->new(
-                              Data::Gimei::sample( $names->{'last_name'} ));
+    $args{'gender'} //= Data::Gimei::sample( [ 'male', 'female' ] );
+    $args{'first_name'} = Data::Gimei::Word->new(
+        Data::Gimei::sample( $names->{'first_name'}->{ $args{'gender'} } ) );
+    $args{'last_name'} =
+      Data::Gimei::Word->new( Data::Gimei::sample( $names->{'last_name'} ) );
     return $class->$orig(%args);
 };
 
 sub load {
-    my $yaml_path = shift // dist_file('Data-Gimei', 'names.yml');
+    my $yaml_path = shift // dist_file( 'Data-Gimei', 'names.yml' );
 
     $names = YAML::XS::LoadFile($yaml_path);
 }

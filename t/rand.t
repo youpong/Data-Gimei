@@ -6,7 +6,7 @@ use feature ':5.30';
 use Test::More;
 use Data::Gimei;
 
-my (@expected, @actual);
+my ( @expected, @actual );
 
 Data::Gimei::set_random_seed(42);
 my $name = Data::Gimei::Name->new();
@@ -20,8 +20,7 @@ $name = Data::Gimei::Name->new();
 push @actual, $name->kanji;
 $address = Data::Gimei::Address->new();
 push @actual, $address->kanji;
-ok Test::More::eq_array(\@expected, \@actual);
-
+ok Test::More::eq_array( \@expected, \@actual );
 
 # Deteministic random DOES NOT depend on calling rand()
 @actual = ();
@@ -32,6 +31,6 @@ push @actual, $name->kanji;
 rand;
 $address = Data::Gimei::Address->new();
 push @actual, $address->kanji;
-ok Test::More::eq_array(\@expected, \@actual);
+ok Test::More::eq_array( \@expected, \@actual );
 
 done_testing();

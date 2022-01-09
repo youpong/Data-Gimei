@@ -18,10 +18,12 @@ around BUILDARGS => sub {
 
     my %args;
     if ( 'ARRAY' eq ref $_[0] ) {
-        %args = ( kanji    => $_[0]->[0],
-                  hiragana => $_[0]->[1],
-                  katakana => $_[0]->[2],
-                  romaji   => $_[0]->[3] );
+        %args = (
+            kanji    => $_[0]->[0],
+            hiragana => $_[0]->[1],
+            katakana => $_[0]->[2],
+            romaji   => $_[0]->[3]
+        );
     } else {
         %args = @_;
     }

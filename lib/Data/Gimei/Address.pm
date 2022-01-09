@@ -15,23 +15,23 @@ has town       => ( is => 'ro' );
 our $addresses;
 
 around BUILDARGS => sub {
-    my $orig = shift;
+    my $orig  = shift;
     my $class = shift;
-    my %args = @_;
+    my %args  = @_;
 
     $addresses //= load();
 
     $args{'prefecture'} = Data::Gimei::Word->new(
-                            Data::Gimei::sample( $addresses->{'addresses'}->{'prefecture'} ));
-    $args{'city'}       = Data::Gimei::Word->new(
-                            Data::Gimei::sample( $addresses->{'addresses'}->{'city'} ));
-    $args{'town'}       = Data::Gimei::Word->new(
-                            Data::Gimei::sample( $addresses->{'addresses'}->{'town'} ));
+        Data::Gimei::sample( $addresses->{'addresses'}->{'prefecture'} ) );
+    $args{'city'} = Data::Gimei::Word->new(
+        Data::Gimei::sample( $addresses->{'addresses'}->{'city'} ) );
+    $args{'town'} = Data::Gimei::Word->new(
+        Data::Gimei::sample( $addresses->{'addresses'}->{'town'} ) );
     return $class->$orig(%args);
 };
 
 sub load {
-    my $yaml_path = shift // dist_file('Data-Gimei', 'addresses.yml');
+    my $yaml_path = shift // dist_file( 'Data-Gimei', 'addresses.yml' );
 
     $addresses = YAML::XS::LoadFile($yaml_path);
 }

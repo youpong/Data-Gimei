@@ -16,7 +16,7 @@ sub random {
     my $size = shift;
 
     srand($seed);
-    my $ret = int(rand($size));
+    my $ret = int( rand($size) );
     $seed = srand($seed);
 
     return $ret;
@@ -24,8 +24,8 @@ sub random {
 
 sub sample {
     my $array = shift;
-    my $len = @$array;
-    return $array->[random($len)];
+    my $len   = @$array;
+    return $array->[ random($len) ];
 }
 1;
 
