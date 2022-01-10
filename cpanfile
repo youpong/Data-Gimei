@@ -3,7 +3,7 @@ requires 'Moo';
 requires 'YAML::XS';
 requires 'feature';
 requires 'namespace::clean';
-requires 'version', '0.77';
+requires 'version';
 
 on configure => sub {
     requires 'Module::Build::Tiny', '0.035';
@@ -15,5 +15,5 @@ on develop => sub {
 };
 
 on test => sub {
-    requires 'Test::More', '0.98';
+    requires 'Test::More';
 };
