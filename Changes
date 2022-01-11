@@ -1,5 +1,11 @@
 Revision history for Perl extension Data-Gimei
 
+v0.0.4
+
+    - Introduce Address
+    - Introduce Deteministic random
+    - Change License
+
 v0.0.3
 
     - Support Romaji
@@ -8,7 +14,7 @@ v0.0.3
 
 v0.0.2
 
-    - Change YAML module YAML::XS.
+    - Change YAML module to YAML::XS.
 
 v0.0.1
 

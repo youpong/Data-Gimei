@@ -34,6 +34,7 @@
       },
       "develop" : {
          "requires" : {
+            "Perl::Tidy" : "0",
             "Test::CPAN::Meta" : "0",
             "Test::MinimumVersion::Fast" : "0.04",
             "Test::PAUSE::Permissions" : "0.07",
@@ -48,12 +49,12 @@
             "YAML::XS" : "0",
             "feature" : "0",
             "namespace::clean" : "0",
-            "version" : "0.77"
+            "version" : "0"
          }
       },
       "test" : {
          "requires" : {
-            "Test::More" : "0.98"
+            "Test::More" : "0"
          }
       }
    },
@@ -71,7 +72,7 @@
    },
    "version" : "v0.0.3",
    "x_contributors" : [
-      "NAKAJIMA Yusaku <yupong7@example.com>",
+      "NAKAJIMA Yusaku <youpong@cpan.org>",
       "youpong <43817652+youpong@users.noreply.github.com>"
    ],
    "x_serialization_backend" : "JSON::PP version 4.02",
