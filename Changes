@@ -1,6 +1,8 @@
 Revision history for Perl extension Data-Gimei
 
-v0.0.4
+{{$NEXT}}
+
+v0.0.4 2022-01-11T08:29:51Z
 
     - Introduce Address
     - Introduce Deteministic random
