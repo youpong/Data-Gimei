@@ -33,7 +33,7 @@ sub sample {
 
 =head1 NAME
 
-Data::Gimei - a Perl port of Ruby's gimei.
+Data::Gimei - a Perl port of Ruby's gimei generates fake data in Japanese.
 
 =head1 SYNOPSIS
 
@@ -105,10 +105,10 @@ output of repeated method calls.
 
 =head1 INSTALL
 
-This module is not available at CPAN yet.  You can install this module
+This module is available on CPAN.  You can install this module
 by following the step below.
 
-  $ cpanm Data-Gimei-v0.0.2.tar.gz
+  $ cpanm Data::Gimei
 
 =head1 LICENSE
 
@@ -118,6 +118,6 @@ Dictionary YAML file is generated from naist-jdic.
 
 =head1 AUTHOR
 
-NAKAJIMA Yusaku E<lt> example@example.com E<gt>
+NAKAJIMA Yusaku E<lt> youpong@cpan.org E<gt>
 
 =cut

@@ -1,7 +1,7 @@
 {
-   "abstract" : "a Perl port of Ruby's gimei.",
+   "abstract" : "a Perl port of Ruby's gimei generates fake data in Japanese.",
    "author" : [
-      "NAKAJIMA Yusaku < example@example.com >"
+      "NAKAJIMA Yusaku < youpong@cpan.org >"
    ],
    "dynamic_config" : 0,
    "generated_by" : "Minilla/v3.1.12, CPAN::Meta::Converter version 2.150010",
