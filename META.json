@@ -49,6 +49,7 @@
             "YAML::XS" : "0",
             "feature" : "0",
             "namespace::clean" : "0",
+            "perl" : "5.022001",
             "version" : "0"
          }
       },
@@ -70,7 +71,7 @@
          "web" : "https://github.com/youpong/pl-gimei"
       }
    },
-   "version" : "v0.0.4",
+   "version" : "v0.0.5",
    "x_contributors" : [
       "NAKAJIMA Yusaku <yupong7@gmail.com>",
       "youpong <43817652+youpong@users.noreply.github.com>"
