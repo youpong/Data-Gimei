@@ -28,8 +28,7 @@
    "prereqs" : {
       "configure" : {
          "requires" : {
-            "Module::Build::Tiny" : "0.035",
-            "perl" : "5.008_001"
+            "Module::Build::Tiny" : "0.035"
          }
       },
       "develop" : {
