@@ -2,3 +2,4 @@ Makefile.old
 MANIFEST.bak
 cpanfile.snapshot
 local
+vendor
