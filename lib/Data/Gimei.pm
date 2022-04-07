@@ -1,6 +1,6 @@
 package Data::Gimei;
 
-use version; our $VERSION = version->declare("v0.0.5");
+use version; our $VERSION = version->declare("v0.0.6");
 
 use Data::Gimei::Name;
 use Data::Gimei::Address;
