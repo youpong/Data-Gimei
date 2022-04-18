@@ -1,5 +1,17 @@
-Makefile.old
-MANIFEST.bak
-cpanfile.snapshot
-local
-vendor
+# temp
+/Makefile.old
+/MANIFEST.bak
+
+# dev 
+/cpanfile.snapshot
+
+# conf
+/Build
+/_build_params
+/MYMETA.json
+/MYMETA.yml
+
+# build
+blib/
+local/
+vendor/
