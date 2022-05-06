@@ -9,7 +9,6 @@ use Data::Gimei::Word;
 use strict;
 use warnings;
 use feature ':5.12';
-use utf8;
 
 my $seed = srand();
 
