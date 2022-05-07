@@ -44,6 +44,7 @@
       "runtime" : {
          "requires" : {
             "Carp" : "0",
+            "Class::Tiny" : "0",
             "File::Share" : "0",
             "YAML::XS" : "0",
             "feature" : "0",
