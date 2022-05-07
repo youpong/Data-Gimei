@@ -5,17 +5,15 @@ use File::Share ':all';
 use YAML::XS;
 use Carp;
 
-use Moo;
-use namespace::clean;
-
-has gender     => ( is => 'ro' );
-has first_name => ( is => 'ro' );
-has last_name  => ( is => 'ro' );
+use Class::Tiny qw(
+    gender
+    first_name
+    last_name
+);
 
 our $names;
 
-around BUILDARGS => sub {
-    my $orig  = shift;
+sub BUILDARGS {
     my $class = shift;
     my %args  = @_;
 
@@ -25,8 +23,9 @@ around BUILDARGS => sub {
     $args{'first_name'} = Data::Gimei::Word->new(
         Data::Gimei::sample( $names->{'first_name'}->{ $args{'gender'} } ) );
     $args{'last_name'} =
-      Data::Gimei::Word->new( Data::Gimei::sample( $names->{'last_name'} ) );
-    return $class->$orig(%args);
+        Data::Gimei::Word->new( Data::Gimei::sample( $names->{'last_name'} ) );
+
+    return \%args;
 };
 
 sub load {

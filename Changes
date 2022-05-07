@@ -2,6 +2,8 @@ Revision history for Perl extension Data-Gimei
 
 {{$NEXT}}
 
+    - change OO systems Moo -> Class::Tiny
+
 v0.0.7 2022-05-06T05:47:29Z
 
     - remove unused modules

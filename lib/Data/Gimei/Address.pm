@@ -5,17 +5,15 @@ use File::Share ':all';
 use YAML::XS;
 use Carp;
 
-use Moo;
-use namespace::clean;
-
-has prefecture => ( is => 'ro' );
-has city       => ( is => 'ro' );
-has town       => ( is => 'ro' );
+use Class::Tiny qw (
+    prefecture
+    city
+    town
+);
 
 our $addresses;
 
-around BUILDARGS => sub {
-    my $orig  = shift;
+sub BUILDARGS {
     my $class = shift;
     my %args  = @_;
 
@@ -27,7 +25,8 @@ around BUILDARGS => sub {
         Data::Gimei::sample( $addresses->{'addresses'}->{'city'} ) );
     $args{'town'} = Data::Gimei::Word->new(
         Data::Gimei::sample( $addresses->{'addresses'}->{'town'} ) );
-    return $class->$orig(%args);
+
+    return \%args;
 };
 
 sub load {
