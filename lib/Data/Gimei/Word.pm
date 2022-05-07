@@ -1,6 +1,8 @@
 package Data::Gimei::Word;
 
 use feature ':5.12';
+use strict;
+use warnings;
 
 use Class::Tiny qw (
     kanji

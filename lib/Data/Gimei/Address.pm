@@ -1,9 +1,11 @@
 package Data::Gimei::Address;
 
 use feature ':5.12';
+use strict;
+use warnings;
+use Carp;
 use File::Share ':all';
 use YAML::XS;
-use Carp;
 
 use Class::Tiny qw (
     prefecture

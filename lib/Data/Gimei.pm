@@ -1,14 +1,12 @@
 package Data::Gimei;
 
+use strict;
+use warnings;
 use version; our $VERSION = version->declare("v0.0.7");
 
 use Data::Gimei::Name;
 use Data::Gimei::Address;
 use Data::Gimei::Word;
-
-use strict;
-use warnings;
-use feature ':5.12';
 
 my $seed = srand();
 
