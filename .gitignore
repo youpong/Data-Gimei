@@ -4,6 +4,7 @@
 
 # dev 
 /cpanfile.snapshot
+/.carmel
 
 # conf
 /Build
