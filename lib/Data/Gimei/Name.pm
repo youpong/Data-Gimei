@@ -4,7 +4,7 @@ use feature ':5.12';
 use strict;
 use warnings;
 use Carp;
-use File::Share ':all';
+use File::Share qw( dist_file );
 use YAML::XS;
 
 use Class::Tiny qw(
