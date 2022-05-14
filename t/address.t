@@ -1,6 +1,5 @@
-use strict;
-use warnings;
-use feature ':5.12';
+use strict; use warnings;
+use v5.22;
 use utf8;
 
 use Test::More;

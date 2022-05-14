@@ -5,6 +5,7 @@ Revision history for Perl extension Data-Gimei
     - change OO systems Moo -> Class::Tiny
     - organize modules
     - update cpanfile
+    - use VERSION instead of use feature.
 
 v0.0.7 2022-05-06T05:47:29Z
 

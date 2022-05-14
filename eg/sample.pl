@@ -1,9 +1,8 @@
 #!/usr/bin/env perl
 
-use strict;
-use warnings;
+use strict; use warnings;
+use v5.22;
 binmode STDOUT, ":utf8";
-use feature ':5.12';
 
 use Data::Gimei;
 my $name = Data::Gimei::Name->new();

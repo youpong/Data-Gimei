@@ -1,7 +1,8 @@
 package Data::Gimei;
 
-use strict;
-use warnings;
+use strict; use warnings;
+use v5.22;
+
 use version; our $VERSION = version->declare("v0.0.7");
 
 use Data::Gimei::Name;
@@ -39,8 +40,9 @@ Data::Gimei - a Perl port of Ruby's gimei generates fake data in Japanese.
 
 =head1 SYNOPSIS
 
+  use strict; use warnings;
+  use v5.22;
   binmode STDOUT, ":utf8";
-  use feature ':5.12';
 
   use Data::Gimei;
   my $name = Data::Gimei::Name->new();
