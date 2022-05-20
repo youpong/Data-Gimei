@@ -8,8 +8,8 @@ use YAML::XS;
 
 use Class::Tiny qw(
     gender
-    first_name
-    last_name
+    given
+    family
 );
 
 our $names;
@@ -21,9 +21,9 @@ sub BUILDARGS {
     $names //= load();
 
     $args{'gender'} //= Data::Gimei::sample( [ 'male', 'female' ] );
-    $args{'first_name'} = Data::Gimei::Word->new(
+    $args{'given'} = Data::Gimei::Word->new(
         Data::Gimei::sample( $names->{'first_name'}->{ $args{'gender'} } ) );
-    $args{'last_name'} =
+    $args{'family'} =
         Data::Gimei::Word->new( Data::Gimei::sample( $names->{'last_name'} ) );
 
     return \%args;
@@ -38,22 +38,22 @@ sub load {
 
 sub kanji {
     my $self = shift;
-    return $self->last_name->kanji . " " . $self->first_name->kanji;
+    return $self->family->kanji . " " . $self->given->kanji;
 }
 
 sub hiragana {
     my $self = shift;
-    return $self->last_name->hiragana . " " . $self->first_name->hiragana;
+    return $self->family->hiragana . " " . $self->given->hiragana;
 }
 
 sub katakana {
     my $self = shift;
-    return $self->last_name->katakana . " " . $self->first_name->katakana;
+    return $self->family->katakana . " " . $self->given->katakana;
 }
 
 sub romaji {
     my $self = shift;
-    return $self->first_name->romaji . " " . $self->last_name->romaji;
+    return $self->given->romaji . " " . $self->family->romaji;
 }
 
 1;

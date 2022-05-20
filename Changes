@@ -6,6 +6,7 @@ Revision history for Perl extension Data-Gimei
     - organize modules
     - update cpanfile
     - use VERSION instead of use feature.
+    - rename first_name -> given, last_name -> family
 
 v0.0.7 2022-05-06T05:47:29Z
 
