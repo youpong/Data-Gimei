@@ -3,6 +3,7 @@ requires 'Carp';
 requires 'Class::Tiny';
 requires 'File::Share';
 requires 'YAML::XS';
+requires 'Math::Random';
 requires 'feature';
 requires 'version';
 
