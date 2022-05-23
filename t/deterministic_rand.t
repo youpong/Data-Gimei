@@ -6,32 +6,36 @@ use v5.22;
 use Test::More;
 use Data::Gimei;
 
+sub compare {
+    my ($aref1, $aref2) = @_;
+
+    for (my $i = 0; $i < @$aref1; $i++) {
+        is $aref1->[$i]->kanji, $aref2->[$i]->kanji;
+    }
+}
+
 my ( @expected, @actual );
 
 Data::Gimei::set_random_seed(42);
-my $name = Data::Gimei::Name->new();
-push @expected, $name->kanji;
-my $address = Data::Gimei::Address->new();
-push @expected, $address->kanji;
+push @expected, Data::Gimei::Name->new();
+push @expected, Data::Gimei::Address->new();
 
 # Deteministic random returns same result
 Data::Gimei::set_random_seed(42);
-$name = Data::Gimei::Name->new();
-push @actual, $name->kanji;
-$address = Data::Gimei::Address->new();
-push @actual, $address->kanji;
-#ok Test::More::eq_array( \@expected, \@actual );
-is_deeply \@expected, \@actual;
+push @actual, Data::Gimei::Name->new();
+push @actual, Data::Gimei::Address->new();
+
+#is_deeply \@expected, \@actual;
+compare( \@expected, \@actual );
 
 # Deteministic random DOES NOT depend on calling rand()
 @actual = ();
 Data::Gimei::set_random_seed(42);
 rand;
-$name = Data::Gimei::Name->new();
-push @actual, $name->kanji;
+push @actual, Data::Gimei::Name->new();
 rand;
-$address = Data::Gimei::Address->new();
-push @actual, $address->kanji;
-ok Test::More::eq_array( \@expected, \@actual );
+push @actual, Data::Gimei::Address->new();
+
+compare( \@expected, \@actual );
 
 done_testing();
