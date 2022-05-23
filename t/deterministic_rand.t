@@ -14,22 +14,25 @@ sub compare {
     }
 }
 
-my ( @expected, @actual );
+my @expected;
 
 Data::Gimei::set_random_seed(42);
 push @expected, Data::Gimei::Name->new();
 push @expected, Data::Gimei::Address->new();
 
 # Deteministic random returns same result
-Data::Gimei::set_random_seed(42);
-push @actual, Data::Gimei::Name->new();
-push @actual, Data::Gimei::Address->new();
+{
+    my @actual;
 
-#is_deeply \@expected, \@actual;
-compare( \@expected, \@actual );
+    Data::Gimei::set_random_seed(42);
+    push @actual, Data::Gimei::Name->new();
+    push @actual, Data::Gimei::Address->new();
+
+    compare( \@expected, \@actual );
+}
 
 # Deteministic random DOES NOT depend on calling rand()
-@actual = ();
+my @actual = ();
 Data::Gimei::set_random_seed(42);
 rand;
 push @actual, Data::Gimei::Name->new();
