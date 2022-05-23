@@ -8,27 +8,18 @@ use version; our $VERSION = version->declare("v0.0.7");
 use Data::Gimei::Name;
 use Data::Gimei::Address;
 use Data::Gimei::Word;
+use Data::Gimei::Random;
 
-my $seed = srand();
+my $r = Data::Gimei::Random->new;
 
 sub set_random_seed {
-    $seed = shift;
-}
-
-sub random {
-    my $size = shift;
-
-    srand($seed);
-    my $ret = int( rand($size) );
-    $seed = srand($seed);
-
-    return $ret;
+    my $seed = shift;
+    $r->set_seed( $seed );
 }
 
 sub sample {
     my $array = shift;
-    my $len   = @$array;
-    return $array->[ random($len) ];
+    return $r->next_sample( $array );
 }
 1;
 

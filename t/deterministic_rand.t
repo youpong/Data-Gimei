@@ -20,7 +20,8 @@ $name = Data::Gimei::Name->new();
 push @actual, $name->kanji;
 $address = Data::Gimei::Address->new();
 push @actual, $address->kanji;
-ok Test::More::eq_array( \@expected, \@actual );
+#ok Test::More::eq_array( \@expected, \@actual );
+is_deeply \@expected, \@actual;
 
 # Deteministic random DOES NOT depend on calling rand()
 @actual = ();
