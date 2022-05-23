@@ -19,15 +19,14 @@ sub set_seed {
     $self->seed( \@seed );
 }
 
-# todo: rewrite with permuted_index
 sub next_int {
     my ($self, $size) = @_;
 
-    if (!$self->seed) {
+    if ($self->seed) {
+        random_set_seed(@{$self->seed});
+    } else {
         $self->set_seed(13 * (time % 2 ** 26));
     }
-
-    random_set_seed(@{$self->seed});
 
     my $ret = random_uniform_integer(1, 0, $size);
 
@@ -40,10 +39,8 @@ sub next_int {
 sub next_sample {
     my ($self, $array_ref) = @_;
 
-    my $len = @$array_ref;
-    my $index = $self->next_int( $len );
-
-    return $array_ref->[ $index ];
+    my $i = $self->next_int( $#$array_ref );
+    return $array_ref->[ $i ];
 }
 
 1;
