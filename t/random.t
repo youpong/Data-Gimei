@@ -7,27 +7,43 @@ use Math::Random;
 use Data::Gimei::Random;
 
 {
+    my @results;
     my $r = Data::Gimei::Random->new;
 
-    $r->set_random_seed(42);
-    my $previous = $r->random(1024);
-
-    $r->set_random_seed(42);
-    is $r->random(1024), $previous;
+    $r->next_int(42); # should not throw error
 }
 
 {
+    my @results;
+    my $r = Data::Gimei::Random->new;
+
+    $r->set_seed(42);
+    push @results, $r->next_int(1024);
+
+    $r->set_seed(42);
+    push @results, $r->next_int(1024);
+    push @results, $r->next_int(1024);
+
+    is $results[0], $results[1];
+    isnt $results[0], $results[2];
+}
+
+{
+    my @results;
     my @array = qw(a b c);
     my $r = Data::Gimei::Random->new;
 
-    $r->set_random_seed(42);
-    my $previous = $r->sample( \@array );
+    $r->set_seed(42);
+    push @results, $r->next_sample( \@array );
 
-    random_uniform_integer(1, 0, @array);
-    rand(@array);
+    random_uniform_integer(1, 0, 1);
+    rand(1);
 
-    $r->set_random_seed(42);
-    is $r->sample( \@array ), $previous;
+    $r->set_seed(42);
+    push @results, $r->next_sample( \@array );
+
+    is $results[0], $results[1];
+    #say join ',', @results;
 }
 
 done_testing;

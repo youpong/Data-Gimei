@@ -10,7 +10,7 @@ use Class::Tiny qw(
    seed
 );
 
-sub set_random_seed {
+sub set_seed {
     my ($self, $seed) = @_;
 
     random_set_seed_from_phrase($seed);
@@ -19,11 +19,12 @@ sub set_random_seed {
     $self->seed( \@seed );
 }
 
-sub random {
+# todo: rewrite with permuted_index
+sub next_int {
     my ($self, $size) = @_;
 
     if (!$self->seed) {
-        $self->set_random_seed(time);
+        $self->set_seed(13 * (time % 2 ** 26));
     }
 
     random_set_seed(@{$self->seed});
@@ -36,11 +37,11 @@ sub random {
     return $ret;
 }
 
-sub sample {
+sub next_sample {
     my ($self, $array_ref) = @_;
 
     my $len = @$array_ref;
-    my $index = $self->random( $len );
+    my $index = $self->next_int( $len );
 
     return $array_ref->[ $index ];
 }
