@@ -1,10 +1,9 @@
 requires 'perl', '5.022001';
-requires 'Carp';
+
 requires 'Class::Tiny';
 requires 'File::Share';
-requires 'YAML::XS';
 requires 'Math::Random';
-requires 'feature';
+requires 'YAML::XS';
 requires 'version';
 
 on configure => sub {
