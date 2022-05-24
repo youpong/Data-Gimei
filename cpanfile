@@ -4,7 +4,6 @@ requires 'Class::Tiny';
 requires 'File::Share';
 requires 'Math::Random';
 requires 'YAML::XS';
-requires 'version';
 
 on configure => sub {
     requires 'Module::Build::Tiny';
