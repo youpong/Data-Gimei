@@ -10,7 +10,7 @@ use Data::Gimei::Random;
     my @results;
     my $r = Data::Gimei::Random->new;
 
-    $r->next_int(42);    # should not throw error
+    $r->next_int(42);    # must not throw error
 }
 
 {
@@ -43,8 +43,6 @@ use Data::Gimei::Random;
     push @results, $r->next_sample( \@array );
 
     is $results[0], $results[1];
-
-    #say join ',', @results;
 }
 
 done_testing;
