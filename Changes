@@ -3,6 +3,7 @@ Revision history for Perl extension Data-Gimei
 {{$NEXT}}
 
     - update cpanfile
+    - format by perltidy
 
 v0.1.0 2022-05-24T20:07:31Z
 
