@@ -1,4 +1,4 @@
-use strict; use warnings;
+use warnings;
 use v5.22;
 use utf8;
 

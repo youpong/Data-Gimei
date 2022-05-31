@@ -1,15 +1,15 @@
 # Deterministic random test
 
-use strict; use warnings;
+use warnings;
 use v5.22;
 
 use Test::More;
 use Data::Gimei;
 
 sub compare {
-    my ($aref1, $aref2) = @_;
+    my ( $aref1, $aref2 ) = @_;
 
-    for (my $i = 0; $i < @$aref1; $i++) {
+    for ( my $i = 0 ; $i < @$aref1 ; $i++ ) {
         is $aref1->[$i]->kanji, $aref2->[$i]->kanji;
     }
 }

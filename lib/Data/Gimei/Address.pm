@@ -1,15 +1,15 @@
 package Data::Gimei::Address;
 
-use strict; use warnings;
+use warnings;
 use v5.22;
 use Carp;
 use File::Share qw( dist_file );
 use YAML::XS;
 
 use Class::Tiny qw(
-    prefecture
-    city
-    town
+  prefecture
+  city
+  town
 );
 
 our $addresses;
@@ -28,7 +28,7 @@ sub BUILDARGS {
         Data::Gimei::sample( $addresses->{'addresses'}->{'town'} ) );
 
     return \%args;
-};
+}
 
 sub load {
     my $yaml_path = shift // dist_file( 'Data-Gimei', 'addresses.yml' );

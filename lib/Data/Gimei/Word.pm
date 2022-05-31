@@ -1,13 +1,13 @@
 package Data::Gimei::Word;
 
-use strict; use warnings;
+use warnings;
 use v5.22;
 
 use Class::Tiny qw (
-    kanji
-    hiragana
-    katakana
-    romaji
+  kanji
+  hiragana
+  katakana
+  romaji
 );
 
 sub BUILDARGS {
@@ -27,6 +27,6 @@ sub BUILDARGS {
     $args{'romaji'} = ucfirst( $args{'romaji'} ) if $args{'romaji'};
 
     return \%args;
-};
+}
 
 1;

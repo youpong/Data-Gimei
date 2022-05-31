@@ -1,15 +1,15 @@
 package Data::Gimei::Name;
 
-use strict; use warnings;
+use warnings;
 use v5.22;
 use Carp;
 use File::Share qw( dist_file );
 use YAML::XS;
 
 use Class::Tiny qw(
-    gender
-    given
-    family
+  gender
+  given
+  family
 );
 
 our $names;
@@ -24,10 +24,10 @@ sub BUILDARGS {
     $args{'given'} = Data::Gimei::Word->new(
         Data::Gimei::sample( $names->{'first_name'}->{ $args{'gender'} } ) );
     $args{'family'} =
-        Data::Gimei::Word->new( Data::Gimei::sample( $names->{'last_name'} ) );
+      Data::Gimei::Word->new( Data::Gimei::sample( $names->{'last_name'} ) );
 
     return \%args;
-};
+}
 
 sub load {
     my $yaml_path = shift // dist_file( 'Data-Gimei', 'names.yml' );

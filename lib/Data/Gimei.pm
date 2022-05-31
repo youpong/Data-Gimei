@@ -1,6 +1,6 @@
 package Data::Gimei;
 
-use strict; use warnings;
+use warnings;
 use v5.22;
 
 use version; our $VERSION = version->declare("v0.1.0");
@@ -14,12 +14,12 @@ my $r = Data::Gimei::Random->new;
 
 sub set_random_seed {
     my $seed = shift;
-    $r->set_seed( $seed );
+    $r->set_seed($seed);
 }
 
 sub sample {
     my $array = shift;
-    return $r->next_sample( $array );
+    return $r->next_sample($array);
 }
 1;
 
@@ -33,7 +33,7 @@ Data::Gimei - a Perl port of Ruby's gimei generates fake data in Japanese.
 
 =head1 SYNOPSIS
 
-  use strict; use warnings;
+  use warnings;
   use v5.22;
   binmode STDOUT, ":utf8";
 
