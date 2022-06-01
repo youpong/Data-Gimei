@@ -6,43 +6,40 @@ use Test::More;
 use Math::Random;
 use Data::Gimei::Random;
 
-{
+{ # default seed
     my @results;
     my $r = Data::Gimei::Random->new;
 
     $r->next_int(42);    # must not throw error
 }
 
-{
-    my @results;
+{ # next_int
+    my $expected;
     my $r = Data::Gimei::Random->new;
 
     $r->set_seed(42);
-    push @results, $r->next_int(1024);
+    $expected = $r->next_int(1024);
 
     $r->set_seed(42);
-    push @results, $r->next_int(1024);
-    push @results, $r->next_int(1024);
+    is   $r->next_int(1024), $expected;
+    isnt $r->next_int(1024), $expected;
 
-    is   $results[0], $results[1];
-    isnt $results[0], $results[2];
+    $r->set_seed(546);
+    isnt $r->next_int(1024), $expected;
 }
 
-{
-    my @results;
+{ # calling rand(), random_uniform_integer().
     my @array = qw(a b c);
     my $r     = Data::Gimei::Random->new;
 
     $r->set_seed(42);
-    push @results, $r->next_sample( \@array );
+    my $expected = $r->next_sample( \@array );
 
     random_uniform_integer( 1, 0, 1 );
     rand(1);
 
     $r->set_seed(42);
-    push @results, $r->next_sample( \@array );
-
-    is $results[0], $results[1];
+    is $r->next_sample( \@array ), $expected;
 }
 
 done_testing;

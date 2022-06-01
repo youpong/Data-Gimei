@@ -10,9 +10,9 @@ use Class::Tiny qw(
 );
 
 sub set_seed {
-    my ( $self, $seed ) = @_;
+    my ( $self, $seed_phrase ) = @_;
 
-    random_set_seed_from_phrase($seed);
+    random_set_seed_from_phrase($seed_phrase);
     my @seed = random_get_seed();
 
     $self->seed( \@seed );
