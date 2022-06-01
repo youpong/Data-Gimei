@@ -10,9 +10,8 @@ use Class::Tiny qw(
 );
 
 sub set_seed {
-    my ( $self, $seed_phrase ) = @_;
-
-    random_set_seed_from_phrase($seed_phrase);
+    my ( $self, $seed_num ) = @_;
+    random_set_seed_from_phrase(13 * ($seed_num % 2 ** 26));
     my @seed = random_get_seed();
 
     $self->seed( \@seed );
@@ -25,7 +24,7 @@ sub next_int {
         random_set_seed( @{ $self->seed } );
     } else {
         # to change result next_sample in each seconds.
-        $self->set_seed( 13 * ( time % 2**26 ) );
+        $self->set_seed( time );
     }
 
     my $ret = random_uniform_integer( 1, 0, $size );

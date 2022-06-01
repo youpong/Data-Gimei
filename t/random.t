@@ -24,7 +24,7 @@ use Data::Gimei::Random;
     is   $r->next_int(1024), $expected;
     isnt $r->next_int(1024), $expected;
 
-    $r->set_seed(546);
+    $r->set_seed(43);
     isnt $r->next_int(1024), $expected;
 }
 

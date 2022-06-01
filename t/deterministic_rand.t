@@ -26,7 +26,7 @@ push @expected, Data::Gimei::Address->new();
 # Different seed
 {
     my @actual;
-    Data::Gimei::set_random_seed(546);
+    Data::Gimei::set_random_seed(43);
     push @actual, Data::Gimei::Name->new();
     push @actual, Data::Gimei::Name->new();
     push @actual, Data::Gimei::Address->new();
