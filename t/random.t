@@ -24,7 +24,7 @@ use Data::Gimei::Random;
     push @results, $r->next_int(1024);
     push @results, $r->next_int(1024);
 
-    is $results[0],   $results[1];
+    is   $results[0], $results[1];
     isnt $results[0], $results[2];
 }
 

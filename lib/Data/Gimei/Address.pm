@@ -32,7 +32,7 @@ sub BUILDARGS {
 
 sub load {
     my $yaml_path = shift // dist_file( 'Data-Gimei', 'addresses.yml' );
-    -r $yaml_path or Carp::croak("failed to load address data: $yaml_path");
+    Carp::croak("failed to load address data: $yaml_path") unless (-r $yaml_path);
 
     $addresses = YAML::XS::LoadFile($yaml_path);
 }

@@ -31,7 +31,7 @@ sub BUILDARGS {
 
 sub load {
     my $yaml_path = shift // dist_file( 'Data-Gimei', 'names.yml' );
-    -r $yaml_path or Carp::croak("failed to load name data: $yaml_path");
+    Carp::croak("failed to load name data: $yaml_path") unless (-r $yaml_path);
 
     $names = YAML::XS::LoadFile($yaml_path);
 }
