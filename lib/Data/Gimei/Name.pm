@@ -44,23 +44,23 @@ sub to_s {
 }
 
 sub kanji {
-    my $self = shift;
-    return join ' ', map {$_->kanji} ( $self->family, $self->given );
+    my ($self, $s) = @_;
+    return join $s // ' ', map {$_->kanji} ( $self->family, $self->given );
 }
 
 sub hiragana {
-    my $self = shift;
-    return join ' ', map {$_->hiragana} ( $self->family, $self->given );
+    my ($self, $s) = @_;
+    return join $s // ' ', map {$_->hiragana} ( $self->family, $self->given );
 }
 
 sub katakana {
-    my $self = shift;
-    return join ' ', map {$_->katakana} ( $self->family, $self->given );
+    my ($self, $s) = @_;
+    return join $s // ' ', map {$_->katakana} ( $self->family, $self->given );
 }
 
 sub romaji {
-    my $self = shift;
-    return join ' ', map {$_->romaji} ( $self->given, $self->family );
+    my ($self, $s) = @_;
+    return join $s // ' ', map {$_->romaji} ( $self->given, $self->family );
 }
 
 1;
