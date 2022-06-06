@@ -14,6 +14,13 @@ use Class::Tiny qw(
 
 our $addresses;
 
+sub load {
+    my $yaml_path = shift // dist_file( 'Data-Gimei', 'addresses.yml' );
+    Carp::croak("failed to load address data: $yaml_path") unless -r $yaml_path;
+
+    $addresses = YAML::XS::LoadFile($yaml_path);
+}
+
 sub BUILDARGS {
     my $class = shift;
     my %args  = @_;
@@ -37,29 +44,22 @@ sub to_s {
                    $self->kanji(' '), $self->hiragana(' '), $self->katakana(' '));
 }
 
-sub load {
-    my $yaml_path = shift // dist_file( 'Data-Gimei', 'addresses.yml' );
-    Carp::croak("failed to load address data: $yaml_path") unless -r $yaml_path;
-
-    $addresses = YAML::XS::LoadFile($yaml_path);
-}
-
 sub kanji {
     my ($self, $s) = @_;
 
-    return join $s // '', ($self->prefecture->kanji, $self->city->kanji, $self->town->kanji);
+    return join $s // '',  map { $_->kanji } ( $self->prefecture, $self->city, $self->town );
 }
 
 sub hiragana {
     my ($self, $s) = @_;
 
-    return join $s // '', ($self->prefecture->hiragana, $self->city->hiragana, $self->town->hiragana);
+    return join $s // '',  map { $_->hiragana } ( $self->prefecture, $self->city, $self->town );
 }
 
 sub katakana {
     my ($self, $s) = @_;
 
-    return join $s // '', ($self->prefecture->katakana, $self->city->katakana, $self->town->katakana);
+    return join $s // '',  map { $_->katakana } ( $self->prefecture, $self->city, $self->town );
 }
 
 1;
