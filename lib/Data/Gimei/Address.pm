@@ -30,6 +30,19 @@ sub BUILDARGS {
     return \%args;
 }
 
+sub to_s {
+    my $self = shift;
+
+    return sprintf(
+        "%s %s %s, %s %s %s, %s %s %s",
+        $self->prefecture->kanji,    $self->city->kanji,
+        $self->town->kanji,          $self->prefecture->hiragana,
+        $self->city->hiragana,       $self->town->hiragana,
+        $self->prefecture->katakana, $self->city->katakana,
+        $self->town->katakana
+    );
+}
+
 sub load {
     my $yaml_path = shift // dist_file( 'Data-Gimei', 'addresses.yml' );
     Carp::croak("failed to load address data: $yaml_path") unless -r $yaml_path;

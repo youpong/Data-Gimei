@@ -29,6 +29,13 @@ sub BUILDARGS {
     return \%args;
 }
 
+sub to_s {
+    my $self = shift;
+
+    return sprintf( "%s, %s, %s, %s, %s",
+        $self->gender, $self->kanji, $self->hiragana, $self->katakana, $self->romaji );
+}
+
 sub load {
     my $yaml_path = shift // dist_file( 'Data-Gimei', 'names.yml' );
     Carp::croak("failed to load name data: $yaml_path") unless -r $yaml_path;

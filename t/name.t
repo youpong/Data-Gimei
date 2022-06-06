@@ -2,33 +2,38 @@ use warnings;
 use v5.22;
 use utf8;
 
-use Test::More;
-
 use Data::Gimei;
 Data::Gimei::Name::load('t/names.yml');
 
+use Test::More;
+
 {
-    my $gimei = Data::Gimei::Name->new( gender => 'male' );
-    is $gimei->kanji,    '佐藤 愛斗';
-    is $gimei->hiragana, 'さとう あいと';
-    is $gimei->katakana, 'サトウ アイト';
-    is $gimei->romaji,   'Aito Sato';
-    is $gimei->gender,   'male';
+    my $name = Data::Gimei::Name->new( gender => 'male' );
+    is $name->kanji,    '佐藤 愛斗';
+    is $name->hiragana, 'さとう あいと';
+    is $name->katakana, 'サトウ アイト';
+    is $name->romaji,   'Aito Sato';
+    is $name->gender,   'male';
 
-    is $gimei->given->kanji,    '愛斗';
-    is $gimei->given->hiragana, 'あいと';
-    is $gimei->given->katakana, 'アイト';
-    is $gimei->given->romaji,   'Aito';
+    is $name->given->kanji,    '愛斗';
+    is $name->given->hiragana, 'あいと';
+    is $name->given->katakana, 'アイト';
+    is $name->given->romaji,   'Aito';
 
-    is $gimei->family->kanji,    '佐藤';
-    is $gimei->family->hiragana, 'さとう';
-    is $gimei->family->katakana, 'サトウ';
-    is $gimei->family->romaji,   'Sato';
+    is $name->family->kanji,    '佐藤';
+    is $name->family->hiragana, 'さとう';
+    is $name->family->katakana, 'サトウ';
+    is $name->family->romaji,   'Sato';
 }
 
 {
-    my $gimei = Data::Gimei::Name->new( gender => 'female' );
-    is $gimei->gender, 'female';
+    my $name = Data::Gimei::Name->new( gender => 'female' );
+    is $name->gender, 'female';
+}
+
+{
+    my $name = Data::Gimei::Name->new( gender => 'male' );
+    is $name->to_s, 'male, 佐藤 愛斗, さとう あいと, サトウ アイト, Aito Sato';
 }
 
 done_testing;
