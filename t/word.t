@@ -5,6 +5,11 @@ use utf8;
 use Data::Gimei;
 use Test::More;
 
+{    # to_s
+    my $w = Data::Gimei::Word->new( [ '佐藤', 'さとう', 'サトウ', 'sato' ] );
+    is $w->to_s, '佐藤, さとう, サトウ, Sato';
+}
+
 {    # call by using named args.
     my $w = Data::Gimei::Word->new(
         kanji    => '田中',
@@ -27,11 +32,6 @@ use Test::More;
     is $w->hiragana, 'すずき';
     is $w->katakana, 'スズキ';
     is $w->romaji,   'Suzuki';    # romaji capitalize initial char.
-}
-
-{    # to_s
-    my $w = Data::Gimei::Word->new( [ '佐藤', 'さとう', 'サトウ', 'sato' ] );
-    is $w->to_s, '佐藤, さとう, サトウ, Sato';
 }
 
 done_testing;

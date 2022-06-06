@@ -7,6 +7,14 @@ Data::Gimei::Address::load('t/addresses.yml');
 
 use Test::More;
 
+{ # to_s
+    my $addr = Data::Gimei::Address->new();
+
+    is $addr->to_s,
+      '北海道 札幌市中央区 モエレ沼公園, ほっかいどう さっぽろしちゅうおうく もえれぬまこうえん, '
+      . 'ホッカイドウ サッポロシチュウオウク モエレヌマコウエン';
+}
+
 {
     my $addr = Data::Gimei::Address->new();
 
@@ -30,14 +38,6 @@ use Test::More;
     is $addr->town->hiragana, 'もえれぬまこうえん',;
     is $addr->town->katakana, 'モエレヌマコウエン';
     is $addr->town->romaji,   undef;
-}
-
-{
-    my $addr = Data::Gimei::Address->new();
-
-    is $addr->to_s,
-      '北海道 札幌市中央区 モエレ沼公園, ほっかいどう さっぽろしちゅうおうく もえれぬまこうえん, '
-      . 'ホッカイドウ サッポロシチュウオウク モエレヌマコウエン';
 }
 
 done_testing;

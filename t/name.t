@@ -7,6 +7,11 @@ Data::Gimei::Name::load('t/names.yml');
 
 use Test::More;
 
+{ # to_s
+    my $name = Data::Gimei::Name->new( gender => 'male' );
+    is $name->to_s, 'male, 佐藤 愛斗, さとう あいと, サトウ アイト, Aito Sato';
+}
+
 {
     my $name = Data::Gimei::Name->new( gender => 'male' );
     is $name->kanji,    '佐藤 愛斗';
@@ -29,11 +34,6 @@ use Test::More;
 {
     my $name = Data::Gimei::Name->new( gender => 'female' );
     is $name->gender, 'female';
-}
-
-{
-    my $name = Data::Gimei::Name->new( gender => 'male' );
-    is $name->to_s, 'male, 佐藤 愛斗, さとう あいと, サトウ アイト, Aito Sato';
 }
 
 done_testing;
