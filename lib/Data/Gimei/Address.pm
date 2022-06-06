@@ -33,14 +33,8 @@ sub BUILDARGS {
 sub to_s {
     my $self = shift;
 
-    return sprintf(
-        "%s %s %s, %s %s %s, %s %s %s",
-        $self->prefecture->kanji,    $self->city->kanji,
-        $self->town->kanji,          $self->prefecture->hiragana,
-        $self->city->hiragana,       $self->town->hiragana,
-        $self->prefecture->katakana, $self->city->katakana,
-        $self->town->katakana
-    );
+    return sprintf("%s, %s, %s",
+                   $self->kanji(' '), $self->hiragana(' '), $self->katakana(' '));
 }
 
 sub load {
@@ -51,18 +45,21 @@ sub load {
 }
 
 sub kanji {
-    my $self = shift;
-    return $self->prefecture->kanji . $self->city->kanji . $self->town->kanji;
+    my ($self, $s) = @_;
+
+    return join $s // '', ($self->prefecture->kanji, $self->city->kanji, $self->town->kanji);
 }
 
 sub hiragana {
-    my $self = shift;
-    return $self->prefecture->hiragana . $self->city->hiragana . $self->town->hiragana;
+    my ($self, $s) = @_;
+
+    return join $s // '', ($self->prefecture->hiragana, $self->city->hiragana, $self->town->hiragana);
 }
 
 sub katakana {
-    my $self = shift;
-    return $self->prefecture->katakana . $self->city->katakana . $self->town->katakana;
+    my ($self, $s) = @_;
+
+    return join $s // '', ($self->prefecture->katakana, $self->city->katakana, $self->town->katakana);
 }
 
 1;
