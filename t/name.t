@@ -14,24 +14,17 @@ use Test::More;
 
 { #
     my $name = Data::Gimei::Name->new( gender => 'male' );
+
+    is $name->gender,   'male';
     is $name->kanji,    '佐藤 愛斗';
     is $name->hiragana, 'さとう あいと';
     is $name->katakana, 'サトウ アイト';
     is $name->romaji,   'Aito Sato';
-    is $name->gender,   'male';
-
-    is $name->given->kanji,    '愛斗';
-    is $name->given->hiragana, 'あいと';
-    is $name->given->katakana, 'アイト';
-    is $name->given->romaji,   'Aito';
-
-    is $name->family->kanji,    '佐藤';
-    is $name->family->hiragana, 'さとう';
-    is $name->family->katakana, 'サトウ';
-    is $name->family->romaji,   'Sato';
+    is $name->given->to_s, '愛斗, あいと, アイト, Aito';
+    is $name->family->to_s, '佐藤, さとう, サトウ, Sato';
 }
 
-{ # test kanji(':')
+{ # test separater of kanji/katakana/hiragana/romaji
     my $name = Data::Gimei::Name->new( gender => 'male' );
     is $name->kanji('/'),    '佐藤/愛斗';
     is $name->hiragana('/'), 'さとう/あいと';
