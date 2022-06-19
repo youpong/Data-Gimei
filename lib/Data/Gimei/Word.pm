@@ -11,20 +11,14 @@ use Class::Tiny qw (
 );
 
 sub BUILDARGS {
-    my $class = shift;
+    my ( $class, $aref ) = @_;
 
-    my %args;
-    if ( 'ARRAY' eq ref $_[0] ) {
-        %args = (
-            kanji    => $_[0]->[0],
-            hiragana => $_[0]->[1],
-            katakana => $_[0]->[2],
-            romaji   => $_[0]->[3]
-        );
-    } else {
-        %args = @_;
-    }
-    $args{'romaji'} = ucfirst( $args{'romaji'} ) if $args{'romaji'};
+    my %args = (
+        kanji    => $aref->[0],
+        hiragana => $aref->[1],
+        katakana => $aref->[2],
+    );
+    $args{romaji} = ucfirst( $aref->[3] ) if ( $aref->[3] );
 
     return \%args;
 }

@@ -40,26 +40,31 @@ sub BUILDARGS {
 sub to_s {
     my $self = shift;
 
-    return sprintf("%s, %s, %s",
-                   $self->kanji(' '), $self->hiragana(' '), $self->katakana(' '));
+    return sprintf( "%s, %s, %s",
+        $self->kanji(' '),
+        $self->hiragana(' '),
+        $self->katakana(' ') );
 }
 
 sub kanji {
-    my ($self, $s) = @_;
+    my ( $self, $s ) = @_;
 
-    return join $s // '',  map { $_->kanji } ( $self->prefecture, $self->city, $self->town );
+    return join $s // '',
+      map { $_->kanji } ( $self->prefecture, $self->city, $self->town );
 }
 
 sub hiragana {
-    my ($self, $s) = @_;
+    my ( $self, $s ) = @_;
 
-    return join $s // '',  map { $_->hiragana } ( $self->prefecture, $self->city, $self->town );
+    return join $s // '',
+      map { $_->hiragana } ( $self->prefecture, $self->city, $self->town );
 }
 
 sub katakana {
-    my ($self, $s) = @_;
+    my ( $self, $s ) = @_;
 
-    return join $s // '',  map { $_->katakana } ( $self->prefecture, $self->city, $self->town );
+    return join $s // '',
+      map { $_->katakana } ( $self->prefecture, $self->city, $self->town );
 }
 
 1;
