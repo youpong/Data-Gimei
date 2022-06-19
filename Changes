@@ -4,6 +4,7 @@ Revision history for Perl extension Data-Gimei
 
     - add method to_s() to Word/Name/Address
     - add arg separater to Name#kanji/hiragana/katakana/romaji
+    - del the way to call constructor with keyword args. 
 
 v0.1.1 2022-06-02T03:04:17Z
 
