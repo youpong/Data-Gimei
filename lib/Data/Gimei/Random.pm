@@ -1,46 +1,57 @@
 package Data::Gimei::Random;
 
+# Park & Miller comp.lang.c FAQ list Question 13.15
+
 use warnings;
 use v5.22;
 
-use Math::Random;
+# use version; our $VERSION = version->declare("0.0.1");
 
-use Class::Tiny qw(
+use Class::Tiny qw (
   seed
 );
 
-sub set_seed {
-    my ( $self, $seed_num ) = @_;
-    random_set_seed_from_phrase( 13 * ( $seed_num % 2**26 ) );
-    my @seed = random_get_seed();
+# TODO: check seed yet?
+# new
+sub BUILDARGS {
+    #my $class = shift;
+    #my %args = @_;
+    my ( $class, %args ) = @_;
 
-    $self->seed( \@seed );
+    $args{'seed'} //= time();
+
+    return \%args;
 }
 
+# set_seed
+sub set_seed {
+    my ( $self, $seed ) = @_;
+    $self->seed( $seed );
+}
+
+# next
+sub next {
+    my ( $self, $size ) = @_;
+
+    my $next = (48_271 * $self->seed) % (2 << 31 -1);
+    $self->seed( $next );
+
+    return $next;
+}
+
+# next_int
 sub next_int {
     my ( $self, $size ) = @_;
 
-    if ( $self->seed ) {
-        random_set_seed( @{ $self->seed } );
-    } else {
-
-        # to change result next_sample in each seconds.
-        $self->set_seed(time);
-    }
-
-    my $ret = random_uniform_integer( 1, 0, $size );
-
-    my @seed = random_get_seed();
-    $self->seed( \@seed );
-
-    return $ret;
+    return $self->next() % $size;
 }
 
-sub next_sample {
-    my ( $self, $array_ref ) = @_;
+# sample
+sub sample {
+    my ( $self, $aref ) = @_;
 
-    my $i = $self->next_int($#$array_ref);
-    return $array_ref->[$i];
+    my $index = $self->next_int($#$aref + 1);
+
+    return $aref->[$index];
 }
-
 1;
