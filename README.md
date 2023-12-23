@@ -1,4 +1,4 @@
-[![Actions Status](https://github.com/youpong/pl-gimei/workflows/test/badge.svg)](https://github.com/youpong/pl-gimei/actions)
+[![Actions Status](https://github.com/youpong/Data-Gimei/workflows/test/badge.svg)](https://github.com/youpong/Data-Gimei/actions) [![MetaCPAN Release](https://badge.fury.io/pl/Data-Gimei.svg)](https://metacpan.org/release/Data-Gimei)
 # NAME
 
 Data::Gimei - a Perl port of Ruby's gimei generates fake data in Japanese.
