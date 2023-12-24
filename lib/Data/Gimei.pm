@@ -123,7 +123,7 @@ You can also look for information at:
 
 =head1 LICENSE
 
-MIT
+MIT License
 
 Dictionary YAML file is generated from naist-jdic.
 
