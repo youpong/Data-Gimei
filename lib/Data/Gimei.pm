@@ -4,7 +4,7 @@ use 5.010;
 use strict;
 use warnings;
 
-use version; our $VERSION = version->declare("v0.4.0");
+use version; our $VERSION = version->declare("v0.4.1");
 
 use Data::Gimei::Name;
 use Data::Gimei::Address;

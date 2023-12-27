@@ -68,7 +68,7 @@
          "web" : "https://github.com/youpong/Data-Gimei"
       }
    },
-   "version" : "v0.4.0",
+   "version" : "v0.4.1",
    "x_authority" : "cpan:YOUPONG",
    "x_contributors" : [
       "NAKAJIMA Yusaku <yupong7@gmail.com>",
