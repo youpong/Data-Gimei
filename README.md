@@ -5,8 +5,10 @@ Data::Gimei - a Perl port of Ruby's gimei generates fake data in Japanese.
 
 # SYNOPSIS
 
+    use 5.010;
+    use strict;
     use warnings;
-    use v5.22;
+
     binmode STDOUT, ":utf8";
 
     use Data::Gimei;
