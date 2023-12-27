@@ -1,7 +1,8 @@
 package Data::Gimei;
 
+use 5.010;
+use strict;
 use warnings;
-use v5.22;
 
 use version; our $VERSION = version->declare("v0.4.0");
 
