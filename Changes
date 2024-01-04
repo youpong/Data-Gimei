@@ -1,6 +1,7 @@
 Revision history for Perl extension Data-Gimei
 
 {{$NEXT}}
+    - update pod
 
 v0.4.1 2023-12-27T08:18:40Z
     - support old version of perl
