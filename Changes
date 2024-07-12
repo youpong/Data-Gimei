@@ -1,6 +1,7 @@
 Revision history for Perl extension Data-Gimei
 
 {{$NEXT}}
+    - update cpanfile
 
 v0.4.2 2024-01-04T06:43:57Z
     - update pod

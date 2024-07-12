@@ -52,7 +52,7 @@
       },
       "test" : {
          "requires" : {
-            "Test::More" : "0"
+            "Test2::Bundle::More" : "0"
          }
       }
    },
