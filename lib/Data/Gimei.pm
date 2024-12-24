@@ -30,7 +30,8 @@ __END__
 
 =head1 NAME
 
-Data::Gimei - a Perl port of Ruby's gimei generates fake data in Japanese.
+Data::Gimei - A Perl module ported from Ruby's gimei that randomly generates
+Japanese names and addresses.
 
 =head1 SYNOPSIS
 
@@ -79,8 +80,13 @@ Data::Gimei - a Perl port of Ruby's gimei generates fake data in Japanese.
 
 =head1 DESCRIPTION
 
-This module generates fake data that people's name in Japanese and
-supports furigana, phonetic renderings of kanji.
+Data::Gimei generates fake Japanese names and addresses. 
+Generated names include a first name, a last name, and their associated gender.
+Names are available in kanji, hiragana, katakana, and romanized forms, where
+hiragana, katakana, and romanized forms are phonetic renderings for kanji. 
+Addresses include a prefecture, city, and town, and can be generated in kanji,
+hiragana or katakana. The output format can be customized using specific options.
+Note that the gender notation cannot be changed.
 
 The project name comes from Japanese '偽名' means a false name.
 
@@ -123,6 +129,18 @@ You can also look for information at:
 
   Search CPAN
       https://metacpan.org/dist/Data-Gimei
+
+=head1 SEE ALSO
+
+=over 4
+
+=item *
+
+L<App::Gimei>
+
+A command-line tool for this module.
+
+=back
 
 =head1 LICENSE
 

@@ -1,5 +1,5 @@
 {
-   "abstract" : "a Perl port of Ruby's gimei generates fake data in Japanese.",
+   "abstract" : "A Perl module ported from Ruby's gimei that randomly generates Japanese names and addresses.",
    "author" : [
       "NAKAJIMA Yusaku < youpong@cpan.org >"
    ],
