@@ -144,7 +144,10 @@ A command-line tool for this module.
 
 =head1 LICENSE
 
-MIT License
+Copyright (c) 2021-2026 Yusaku Nakajima.
+
+This library is free software; you can redistribute it and/or modify
+it under the terms of the MIT License.
 
 Dictionary YAML file is generated from naist-jdic.
 
