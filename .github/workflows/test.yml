@@ -13,10 +13,10 @@ jobs:
     strategy:
       matrix:
         os: [ windows-latest, macos-latest, ubuntu-latest ]
-        perl: [ "5.42", "5.36", "5.10" ]
+        perl: [ "5.42", "5.40", "5.10" ]
         include:
           - os: windows-latest
-            perl: [ "5.42", "5.36" ]
+            perl: "5.42"
             distribution: [ strawberry, '' ]
 
     steps:
