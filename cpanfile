@@ -14,6 +14,7 @@ on develop => sub {
     requires 'Version::Next';
     requires 'CPAN::Uploader';
     requires 'Software::License::MIT';
+    requires 'Minilla';
 };
 
 on test => sub {
