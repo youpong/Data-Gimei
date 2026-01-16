@@ -4,7 +4,7 @@ We use `Minilla` as our authoring tool.
 
 ## Development Environment
 ```bash
-$ cpanm -n --with-confiugre --with-develop --installdeps .
+$ cpanm -n --with-develop --installdeps .
 ```
 
 ## How to Test

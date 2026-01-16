@@ -5,6 +5,7 @@
 # dev 
 /cpanfile.snapshot
 /.carmel
+/.perl-version
 
 # conf
 /Build
