@@ -23,13 +23,13 @@ jobs:
       - uses: actions/checkout@v6
 
       - name: Setup Strawberry Perl for Windows
-        if: matrix.distribution != ''
+        if: matrix.distribution != null
         uses: shogo82148/actions-setup-perl@v1
         with:
           perl-version: ${{ matrix.perl }}
           distribution: ${{ matrix.distribution }}
       - name: Setup Perl(Default Distribution)
-        if: matrix.distribution == ''
+        if: matrix.distribution == null
         uses: shogo82148/actions-setup-perl@v1
         with:
           perl-version: ${{ matrix.perl }}
