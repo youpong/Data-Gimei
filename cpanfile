@@ -11,6 +11,8 @@ on configure => sub {
 
 on develop => sub {
     requires 'Perl::Tidy';
+    requires 'Version::Next';
+    requires 'CPAN::Uploader';
 };
 
 on test => sub {
