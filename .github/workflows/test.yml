@@ -12,14 +12,28 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [windows-latest, macos-latest, ubuntu-latest]
-        perl: ["5.42", "5.40", "5.10"]
+        os: [ windows-latest, macos-latest, ubuntu-latest ]
+        perl: [ "5.42", "5.40", "5.10" ]
+        include:
+          - os: windows-latest
+            distribution: strawberry
+
     steps:
       - uses: actions/checkout@v6
-      - uses: shogo82148/actions-setup-perl@v1
+
+      - name: Setup Strawberry Perl for Windows
+        if: matrix.distribution != null
+        uses: shogo82148/actions-setup-perl@v1
         with:
           perl-version: ${{ matrix.perl }}
-      - run: cpanm -n --with-configure --with-test --installdeps .
+          distribution: ${{ matrix.distribution }}
+      - name: Setup Perl(Default Distribution)
+        if: matrix.distribution == null
+        uses: shogo82148/actions-setup-perl@v1
+        with:
+          perl-version: ${{ matrix.perl }}
+
+      - run: cpanm -n --with-configure --installdeps .
       - run: |
           perl Build.PL
           ./Build build
