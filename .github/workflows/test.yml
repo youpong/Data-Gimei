@@ -13,22 +13,23 @@ jobs:
     strategy:
       matrix:
         os: [ windows-latest, macos-latest, ubuntu-latest ]
-        perl: [ "5.42", "5.40", "5.10" ]
+        perl: [ "5.42", "5.36", "5.10" ]
         include:
           - os: windows-latest
-            distribution: strawberry
+            perl: [ "5.42", "5.36" ]
+            distribution: [ strawberry, '' ]
 
     steps:
       - uses: actions/checkout@v6
 
       - name: Setup Strawberry Perl for Windows
-        if: matrix.distribution != null
+        if: matrix.distribution != ''
         uses: shogo82148/actions-setup-perl@v1
         with:
           perl-version: ${{ matrix.perl }}
           distribution: ${{ matrix.distribution }}
       - name: Setup Perl(Default Distribution)
-        if: matrix.distribution == null
+        if: matrix.distribution == ''
         uses: shogo82148/actions-setup-perl@v1
         with:
           perl-version: ${{ matrix.perl }}
