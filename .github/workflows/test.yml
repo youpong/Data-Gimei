@@ -20,6 +20,9 @@ jobs:
             distribution: strawberry
           - os: macos-latest
             distribution: strawberry
+          - os: windows-latest
+            perl: "5.10"
+            distribution: strawberry
 
     steps:
       - uses: actions/checkout@v6
