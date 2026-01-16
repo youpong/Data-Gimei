@@ -13,6 +13,7 @@ on develop => sub {
     requires 'Perl::Tidy';
     requires 'Version::Next';
     requires 'CPAN::Uploader';
+    requires 'Software::License::MIT';
 };
 
 on test => sub {
