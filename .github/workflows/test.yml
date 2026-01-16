@@ -14,6 +14,15 @@ jobs:
       matrix:
         os: [ windows-latest, macos-latest, ubuntu-latest ]
         perl: [ "5.42", "5.40", "5.10" ]
+        distribution: [ strawberry, default ]
+        exclude:
+          - os: macos-latest
+            distribution: strawberry
+          - os: ubuntu-latest
+            distribution: strawberry
+          - os: windows-latest
+            perl: "5.10"
+            distribution: strawberry
 
     steps:
       - uses: actions/checkout@v6
@@ -22,6 +31,7 @@ jobs:
         uses: shogo82148/actions-setup-perl@v1
         with:
           perl-version: ${{ matrix.perl }}
+          distribution: ${{ matrix.distribution }}
 
       - run: cpanm -n --installdeps .
       - run: |
