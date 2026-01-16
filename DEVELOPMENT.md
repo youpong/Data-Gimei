@@ -4,12 +4,13 @@ We use `Minilla` as our authoring tool.
 
 ## Development Environment
 ```bash
-$ cpanm -n --with-confiugre --with-develop --with-test --installdeps .
+$ cpanm -n --with-confiugre --with-develop --installdeps .
 ```
 
 ## How to Test
 ```bash
-$ ./Build.PL
+$ perl Build.PL
+$ ./Build build
 $ ./Build test
 ```
 
