@@ -1,4 +1,4 @@
-name: Test
+name: Test on Strawberry Perl for Windows
 
 on:
   push:
@@ -9,19 +9,19 @@ on:
 
 jobs:
   test:
-    runs-on: ${{ matrix.os }}
+    runs-on: windows-latest
     strategy:
       matrix:
-        os: [ windows-latest, macos-latest, ubuntu-latest ]
-        perl: [ "5.42", "5.40", "5.10" ]
-
+        perl: [ "5.42", "5.40", "5.36" ]
+ 
     steps:
       - uses: actions/checkout@v6
 
-      - name: Setup Perl
+      - name: Setup Strawberry Perl for Windows
         uses: shogo82148/actions-setup-perl@v1
         with:
           perl-version: ${{ matrix.perl }}
+          distribution: strawberry
 
       - run: cpanm -n --installdeps .
       - run: |
