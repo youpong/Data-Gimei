@@ -1,6 +1,8 @@
 Revision history for Perl extension Data-Gimei
 
 {{$NEXT}}
+
+v0.4.7 2026-01-17T08:17:33Z
     - Add module dependencies
 
 v0.4.6 2026-01-17T03:32:19Z
