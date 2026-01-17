@@ -10,10 +10,16 @@ on configure => sub {
 };
 
 on develop => sub {
+    requires 'Spellunker';
     requires 'CPAN::Uploader';
     requires 'Minilla';
     requires 'Perl::Tidy';
     requires 'Software::License::MIT';
+    requires 'Test::CPAN::Meta';
+    requires 'Test::MinimumVersion::Fast';
+    requires 'Test::PAUSE::Permissions';
+    requires 'Test::Pod';
+    requires 'Test::Spellunker';
     requires 'Version::Next';
 };
 
