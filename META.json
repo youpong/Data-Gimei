@@ -34,6 +34,7 @@
       "develop" : {
          "requires" : {
             "CPAN::Uploader" : "0",
+            "Minilla" : "0",
             "Perl::Tidy" : "0",
             "Software::License::MIT" : "0",
             "Test::CPAN::Meta" : "0",
@@ -71,7 +72,7 @@
          "web" : "https://github.com/youpong/Data-Gimei"
       }
    },
-   "version" : "v0.4.5",
+   "version" : "v0.4.6",
    "x_authority" : "cpan:YOUPONG",
    "x_contributors" : [
       "NAKAJIMA Yusaku <yupong7@gmail.com>",
