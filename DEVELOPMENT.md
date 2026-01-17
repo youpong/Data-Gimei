@@ -20,3 +20,8 @@ $ carton exec perl Build test
 ```bash
 $ author/format.sh
 ```
+
+## How to Release to CPAN
+```bash
+$ carton exec minil release
+```
