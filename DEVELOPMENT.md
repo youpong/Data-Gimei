@@ -12,8 +12,8 @@ $ carton install --deployment
 ## How to Test
 ```bash
 $ carton exec perl Build.PL
-$ carton exec ./Build build
-$ carton exec ./Build test
+$ carton exec perl Build build
+$ carton exec perl Build test
 ```
 
 ## How to Format
