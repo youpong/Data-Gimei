@@ -6,7 +6,7 @@ dependencies.
 ## Development Environment
 ```bash
 $ cpanm Carton
-$ carton install --deployment
+$ carton install
 ```
 
 ## How to Test
