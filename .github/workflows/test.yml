@@ -28,7 +28,7 @@ jobs:
       - uses: actions/checkout@v6
 
       - name: Setup Perl
-        uses: youpong/actions-setup-perl@main
+        uses: shogo82148/actions-setup-perl@main
         env:
           ACTIONS_STEP_DEBUG: ${{ secrets.ACTIONS_STEP_DEBUG }}
         with:
