@@ -1,0 +1,40 @@
+name: Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ windows-latest, macos-latest, ubuntu-latest ]
+        perl: [ "5.42", "5.40", "5.36", "5.10" ]
+        distribution: [ strawberry, default ]
+        exclude:
+          - os: macos-latest
+            distribution: strawberry
+          - os: ubuntu-latest
+            distribution: strawberry
+          - os: windows-latest
+            perl: "5.10"
+            distribution: strawberry
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Setup Perl
+        uses: shogo82148/actions-setup-perl@main
+        env:
+          ACTIONS_STEP_DEBUG: ${{ secrets.ACTIONS_STEP_DEBUG }}
+        with:
+          perl-version: ${{ matrix.perl }}
+          distribution: ${{ matrix.distribution }}
+
+      - name: Install Module dependencies
+        run: carton install --without develop
+
+      - run: |
+          carton exec perl Build.PL
+          carton exec perl Build build
+          carton exec perl Build test
