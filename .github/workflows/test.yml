@@ -35,6 +35,12 @@ jobs:
           perl-version: ${{ matrix.perl }}
           distribution: ${{ matrix.distribution }}
 
+      - name: Diagnostics
+        shell: perl {0}
+        run: |
+          use YAML::XS;
+          print "YAML::XS-$YAML::XS::VERSION\n";
+
       - name: Install Module dependencies
         run: carton install --without develop
 
