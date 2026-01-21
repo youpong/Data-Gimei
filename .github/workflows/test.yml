@@ -34,6 +34,7 @@ jobs:
         with:
           perl-version: ${{ matrix.perl }}
           distribution: ${{ matrix.distribution }}
+          enable-modules-cache: false
 
       - name: Diagnostics
         shell: perl {0}
