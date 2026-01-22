@@ -41,5 +41,7 @@ jobs:
 
       - run: |
           carton exec perl Build.PL
-          PERL5LIB=local/lib/perl5 perl Build build
+          perl Build build
           carton exec perl Build test
+        env:
+          PERL5LIB: local/lib/perl5
