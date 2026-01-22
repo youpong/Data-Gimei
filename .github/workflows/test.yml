@@ -41,5 +41,5 @@ jobs:
 
       - run: |
           carton exec perl Build.PL
-          carton exec perl Build build
+          perl -Ilocal/lib/perl5 Build build
           carton exec perl Build test
