@@ -40,8 +40,8 @@ jobs:
         run: carton install --without develop
 
       - run: |
-          carton exec perl Build.PL
+          perl ./Build.PL
           perl ./Build build
-          carton exec perl Build test
+          perl ./Build test
         env:
           PERL5LIB: local/lib/perl5
