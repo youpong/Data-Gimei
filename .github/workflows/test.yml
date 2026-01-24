@@ -34,12 +34,9 @@ jobs:
         with:
           perl-version: ${{ matrix.perl }}
           distribution: ${{ matrix.distribution }}
-          install-modules-with: carton
-          install-modules-args: --without develop
-          enable-modules-cache: false
 
-#      - name: Install Module dependencies
-#        run: carton install --without develop
+      - name: Install Module dependencies
+        run: carton install --without develop
 
       - run: |
           perl ./Build.PL
