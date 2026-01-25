@@ -13,16 +13,10 @@ jobs:
     strategy:
       matrix:
         os: [ windows-latest, macos-latest, ubuntu-latest ]
-        perl: [ "5.42", "5.40", "5.36", "5.10" ]
-        distribution: [ strawberry, default ]
+        perl: [ "5.42", "5.40", "5.12", "5.10" ]
         exclude:
-          - os: macos-latest
-            distribution: strawberry
-          - os: ubuntu-latest
-            distribution: strawberry
           - os: windows-latest
             perl: "5.10"
-            distribution: strawberry
 
     steps:
       - uses: actions/checkout@v6
@@ -33,12 +27,13 @@ jobs:
           ACTIONS_STEP_DEBUG: ${{ secrets.ACTIONS_STEP_DEBUG }}
         with:
           perl-version: ${{ matrix.perl }}
-          distribution: ${{ matrix.distribution }}
+          distribution: ${{ runner.os == 'Windows' && 'strawberry' || 'default' }}
 
       - name: Install Module dependencies
         run: carton install --without develop
 
-      - run: |
+      - name: Run Tests
+        run: |
           perl ./Build.PL
           perl ./Build build
           perl ./Build test
