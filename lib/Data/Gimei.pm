@@ -115,6 +115,22 @@ by following the step below.
 
   $ cpanm Data::Gimei
 
+=head1 Compatibility
+
+=head2 Operating Systems
+
+=over 4
+
+=item * B<Linux / macOS>
+
+Works with the system's default Perl distribution (5.10.0 or later).
+
+=item * B<Windows>
+
+Works with B<Strawberry Perl> (5.14.0 or later).
+
+=back
+
 =head1 DOCUMENTATION
 
 After installing, you can find documentation for this module with the
