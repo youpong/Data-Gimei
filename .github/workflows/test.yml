@@ -13,7 +13,7 @@ jobs:
     strategy:
       matrix:
         os: [ windows-latest, macos-latest, ubuntu-latest ]
-        perl: [ "5.42", "5.40", "5.12", "5.10" ]
+        perl: [ "5.42", "5.40", "5.14", "5.10" ]
         exclude:
           - os: windows-latest
             perl: "5.10"
