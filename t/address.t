@@ -19,12 +19,12 @@ use Test2::Bundle::More;
 
 {
     my $addr = Data::Gimei::Address->new();
-
+#<<<
     is $addr->kanji,          '北海道札幌市中央区モエレ沼公園';
     is $addr->hiragana,       'ほっかいどうさっぽろしちゅうおうくもえれぬまこうえん';
     is $addr->katakana,       'ホッカイドウサッポロシチュウオウクモエレヌマコウエン';
     ok !$addr->can('romaji'), 'Address doesn\'t define method romaji().';
-
+#>>>
     is $addr->prefecture->kanji,    '北海道';
     is $addr->prefecture->hiragana, 'ほっかいどう';
     is $addr->prefecture->katakana, 'ホッカイドウ';
