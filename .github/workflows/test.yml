@@ -27,6 +27,8 @@ jobs:
         with:
           perl-version: ${{ matrix.perl }}
           distribution: ${{ runner.os == 'Windows' && 'strawberry' || 'default' }}
+        env:
+          ACTIONS_STEP_DEBUG: false
 
       - name: Install Module dependencies
         run: carton install --without develop
