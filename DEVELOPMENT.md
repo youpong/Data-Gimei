@@ -18,7 +18,7 @@ $ carton exec perl Build test
 
 ## How to Format
 ```bash
-$ author/format.sh
+$ carton exec perl author/format.pl
 ```
 
 ## How to Release to CPAN
