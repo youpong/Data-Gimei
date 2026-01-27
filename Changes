@@ -2,6 +2,7 @@ Revision history for Perl extension Data-Gimei
 
 {{$NEXT}}
     - Add compatibility section to README
+    - Migrate formatter script from Shell to Perl 
 
 v0.4.7 2026-01-17T08:17:33Z
     - Add module dependencies
