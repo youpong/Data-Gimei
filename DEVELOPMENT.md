@@ -5,7 +5,7 @@ dependencies.
 
 ## Development Environment
 ```bash
-$ cpanm Carton
+$ cpanm -n Carton
 $ carton install
 ```
 
@@ -14,6 +14,11 @@ $ carton install
 $ carton exec perl Build.PL
 $ carton exec perl Build build
 $ carton exec perl Build test
+```
+
+## How to REPL(Read-Eval-Print-Loop)
+```bash
+$ carton exec reply
 ```
 
 ## How to Format
