@@ -1,4 +1,4 @@
-[![Actions Status](https://github.com/youpong/Data-Gimei/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/youpong/Data-Gimei/actions?workflow=test) [![MetaCPAN Release](https://badge.fury.io/pl/Data-Gimei.svg)](https://metacpan.org/release/Data-Gimei)
+[![Actions Status](https://github.com/youpong/Data-Gimei/actions/workflows/test.yml/badge.svg?branch=master)](https://github.com/youpong/Data-Gimei/actions?workflow=test) [![MetaCPAN Release](https://badge.fury.io/pl/Data-Gimei.svg)](https://metacpan.org/release/Data-Gimei)
 # NAME
 
 Data::Gimei - A Perl module ported from Ruby's gimei that randomly generates
@@ -85,6 +85,18 @@ This module is available on CPAN.  You can install this module
 by following the step below.
 
     $ cpanm Data::Gimei
+
+# Compatibility
+
+## Operating Systems
+
+- **Linux / macOS**
+
+    Works with the system's default Perl distribution (5.10.0 or later).
+
+- **Windows**
+
+    Works with **Strawberry Perl** (5.14.0 or later).
 
 # DOCUMENTATION
 
