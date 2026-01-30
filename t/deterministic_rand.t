@@ -5,7 +5,7 @@ use strict;
 use warnings;
 
 use Data::Gimei;
-use Test2::V0;
+use Test2::V1 -utf8;
 use Test2::Tools::Spec;
 
 describe "Data::Gimei deterministic random test" => sub {
@@ -22,22 +22,22 @@ describe "Data::Gimei deterministic random test" => sub {
 
     it "same seed generates same result" => sub {
         Data::Gimei::set_random_seed($seed);            # same seed
-        is( Data::Gimei::Name->new()->to_s,    shift(@expected)->to_s, "Name 1" );
-        is( Data::Gimei::Name->new()->to_s,    shift(@expected)->to_s, "Name 2" );
-        is( Data::Gimei::Address->new()->to_s, shift(@expected)->to_s, "Address 1" );
+        T2->is( Data::Gimei::Name->new()->to_s,    shift(@expected)->to_s, "Name 1" );
+        T2->is( Data::Gimei::Name->new()->to_s,    shift(@expected)->to_s, "Name 2" );
+        T2->is( Data::Gimei::Address->new()->to_s, shift(@expected)->to_s, "Address 1" );
     };
 
     it "different seed generates different result" => sub {
         Data::Gimei::set_random_seed( $seed + 1 );      # different seed
-        isnt( Data::Gimei::Name->new()->to_s,    shift(@expected)->to_s, "Name 1" );
-        isnt( Data::Gimei::Name->new()->to_s,    shift(@expected)->to_s, "Name 2" );
-        isnt( Data::Gimei::Address->new()->to_s, shift(@expected)->to_s, "Address 1" );
+        T2->isnt( Data::Gimei::Name->new()->to_s,    shift(@expected)->to_s, "Name 1" );
+        T2->isnt( Data::Gimei::Name->new()->to_s,    shift(@expected)->to_s, "Name 2" );
+        T2->isnt( Data::Gimei::Address->new()->to_s, shift(@expected)->to_s, "Address 1" );
     };
 
     it "SHOULD NOT depend on calling rand()" => sub {
         Data::Gimei::set_random_seed($seed);
         rand;    # call rand() to change internal state
-        is(
+        T2->is(
             Data::Gimei::Name->new()->to_s,
             shift(@expected)->to_s,
             "Not depending on rand()"
@@ -45,4 +45,4 @@ describe "Data::Gimei deterministic random test" => sub {
     };
 };
 
-done_testing();
+T2->done_testing();

@@ -5,7 +5,7 @@ use utf8;
 
 use Data::Gimei;
 
-use Test2::V0;
+use Test2::V1 -utf8;
 use Test2::Tools::Spec;
 
 describe "Data::Gimei::Name" => sub {
@@ -17,27 +17,27 @@ describe "Data::Gimei::Name" => sub {
     };
 
     it "to_s" => sub {
-        is $male->to_s,   'male, 佐藤 愛斗, さとう あいと, サトウ アイト, Aito Sato', 'male';
-        is $female->to_s, 'female, 佐藤 和柚, さとう わゆ, サトウ ワユ, Wayu Sato', 'female';
+        T2->is( $male->to_s,   'male, 佐藤 愛斗, さとう あいと, サトウ アイト, Aito Sato', 'male' );
+        T2->is( $female->to_s, 'female, 佐藤 和柚, さとう わゆ, サトウ ワユ, Wayu Sato', 'female' );
     };
 
     it "getter" => sub {
-        is $male->gender,         'male';
-        is $male->kanji,          '佐藤 愛斗';
-        is $male->hiragana,       'さとう あいと';
-        is $male->katakana,       'サトウ アイト';
-        is $male->romaji,         'Aito Sato', "romaji() returns capitalized romaji";
-        is $male->forename->to_s, '愛斗, あいと, アイト, Aito';
-        is $male->surname->to_s,  '佐藤, さとう, サトウ, Sato';
-        is $female->gender,       'female';
+        T2->is( $male->gender,         'male');
+        T2->is( $male->kanji,          '佐藤 愛斗');
+        T2->is( $male->hiragana,       'さとう あいと');
+        T2->is( $male->katakana,       'サトウ アイト');
+        T2->is( $male->romaji,         'Aito Sato', "romaji() returns capitalized romaji");
+        T2->is( $male->forename->to_s, '愛斗, あいと, アイト, Aito');
+        T2->is( $male->surname->to_s,  '佐藤, さとう, サトウ, Sato');
+        T2->is( $female->gender,       'female');
     };
 
     it "getter with separator" => sub {
-        is $male->kanji('/'),    '佐藤/愛斗';
-        is $male->hiragana('/'), 'さとう/あいと';
-        is $male->katakana('/'), 'サトウ/アイト';
-        is $male->romaji('/'),   'Aito/Sato';
+        T2->is( $male->kanji('/'),    '佐藤/愛斗');
+        T2->is( $male->hiragana('/'), 'さとう/あいと');
+        T2->is( $male->katakana('/'), 'サトウ/アイト');
+        T2->is( $male->romaji('/'),   'Aito/Sato');
     };
 };
 
-done_testing;
+T2->done_testing();

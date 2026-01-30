@@ -1,10 +1,9 @@
 use 5.010;
 use strict;
 use warnings;
-use Test2::V0;
-
+use Test2::V1 -utf8;
 use Data::Gimei;
 
-ok 1;    # dummy
+T2->ok(1, "dummy");
 
-done_testing;
+T2->done_testing;
