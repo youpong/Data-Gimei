@@ -59,7 +59,8 @@
       },
       "test" : {
          "requires" : {
-            "Test2::Bundle::More" : "0"
+            "List::Util" : "1.33",
+            "Test2::V1" : "0"
          }
       }
    },
@@ -75,7 +76,7 @@
          "web" : "https://github.com/youpong/Data-Gimei"
       }
    },
-   "version" : "v0.4.7",
+   "version" : "v0.5.0",
    "x_authority" : "cpan:YOUPONG",
    "x_contributors" : [
       "NAKAJIMA Yusaku <yupong7@gmail.com>",

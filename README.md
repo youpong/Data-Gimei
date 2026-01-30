@@ -1,4 +1,4 @@
-[![Actions Status](https://github.com/youpong/Data-Gimei/actions/workflows/test.yml/badge.svg?branch=master)](https://github.com/youpong/Data-Gimei/actions?workflow=test) [![MetaCPAN Release](https://badge.fury.io/pl/Data-Gimei.svg)](https://metacpan.org/release/Data-Gimei)
+[![Actions Status](https://github.com/youpong/Data-Gimei/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/youpong/Data-Gimei/actions?workflow=test) [![MetaCPAN Release](https://badge.fury.io/pl/Data-Gimei.svg)](https://metacpan.org/release/Data-Gimei)
 # NAME
 
 Data::Gimei - A Perl module ported from Ruby's gimei that randomly generates
