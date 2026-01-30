@@ -1,7 +1,7 @@
 use 5.010;
 use strict;
 use warnings;
-use Test2::Bundle::More;
+use Test2::V0;
 
 use Data::Gimei;
 

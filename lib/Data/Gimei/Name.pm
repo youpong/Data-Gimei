@@ -18,7 +18,7 @@ use Class::Tiny qw(
 # Package variables
 #
 
-our $names;  # loaded names data
+our $names;    # loaded names data
 
 #
 # Class methods

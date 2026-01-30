@@ -6,39 +6,40 @@ use utf8;
 use Data::Gimei;
 Data::Gimei::Address::load('t/addresses.yml');
 
-use Test2::Bundle::More;
+use Test2::V0;
+use Test2::Tools::Spec;
 
-{    # to_s
-    my $addr = Data::Gimei::Address->new();
+describe "Data::Gimei::Address" => sub {
+    my ($addr);
+    before_all setup => sub {
+        $addr = Data::Gimei::Address->new();
+    };
 
-    is $addr->to_s,
-        '北海道 札幌市中央区 モエレ沼公園, '
-      . 'ほっかいどう さっぽろしちゅうおうく もえれぬまこうえん, '
-      . 'ホッカイドウ サッポロシチュウオウク モエレヌマコウエン';
-}
+    it "to_s" => sub {
+        is $addr->to_s,
+            '北海道 札幌市中央区 モエレ沼公園, '
+          . 'ほっかいどう さっぽろしちゅうおうく もえれぬまこうえん, '
+          . 'ホッカイドウ サッポロシチュウオウク モエレヌマコウエン';
+    };
 
-{
-    my $addr = Data::Gimei::Address->new();
-#<<<
-    is $addr->kanji,          '北海道札幌市中央区モエレ沼公園';
-    is $addr->hiragana,       'ほっかいどうさっぽろしちゅうおうくもえれぬまこうえん';
-    is $addr->katakana,       'ホッカイドウサッポロシチュウオウクモエレヌマコウエン';
-    ok !$addr->can('romaji'), 'Address doesn\'t define method romaji().';
-#>>>
-    is $addr->prefecture->kanji,    '北海道';
-    is $addr->prefecture->hiragana, 'ほっかいどう';
-    is $addr->prefecture->katakana, 'ホッカイドウ';
-    is $addr->prefecture->romaji,   undef;
+    it "getter" => sub {
+        is $addr->kanji,    '北海道札幌市中央区モエレ沼公園';
+        is $addr->hiragana, 'ほっかいどうさっぽろしちゅうおうくもえれぬまこうえん';
+        is $addr->katakana, 'ホッカイドウサッポロシチュウオウクモエレヌマコウエン';
+        ok !$addr->can('romaji'), 'Address doesn\'t define method romaji().';
 
-    is $addr->city->kanji,    '札幌市中央区';
-    is $addr->city->hiragana, 'さっぽろしちゅうおうく';
-    is $addr->city->katakana, 'サッポロシチュウオウク';
-    is $addr->city->romaji,   undef;
+        is $addr->prefecture->to_s,   '北海道, ほっかいどう, ホッカイドウ, ', 'prefecture';
+        is $addr->prefecture->romaji, undef;
+        is $addr->city->to_s,         '札幌市中央区, さっぽろしちゅうおうく, サッポロシチュウオウク, ', 'city';
+        is $addr->city->romaji,       undef;
+        is $addr->town->to_s,         'モエレ沼公園, もえれぬまこうえん, モエレヌマコウエン, ', 'town';
+        is $addr->town->romaji,       undef;
+    };
 
-    is $addr->town->kanji,    'モエレ沼公園';
-    is $addr->town->hiragana, 'もえれぬまこうえん',;
-    is $addr->town->katakana, 'モエレヌマコウエン';
-    is $addr->town->romaji,   undef;
-}
-
+    it "getter with separator" => sub {
+        is $addr->kanji('/'),    '北海道/札幌市中央区/モエレ沼公園';
+        is $addr->hiragana('/'), 'ほっかいどう/さっぽろしちゅうおうく/もえれぬまこうえん';
+        is $addr->katakana('/'), 'ホッカイドウ/サッポロシチュウオウク/モエレヌマコウエン';
+    };
+};
 done_testing;

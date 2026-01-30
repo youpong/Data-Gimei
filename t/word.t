@@ -4,22 +4,28 @@ use warnings;
 use utf8;
 
 use Data::Gimei;
-use Test2::Bundle::More;
+use Test2::V0;
+use Test2::Tools::Spec;
 
-{    # to_s
-    my $w = Data::Gimei::Word->new( [ '佐藤', 'さとう', 'サトウ', 'sato' ] );
-    is $w->to_s, '佐藤, さとう, サトウ, Sato';
-}
+describe "Data::Gimei::Word" => sub {
+    my $word;
 
-{    # like call by using positional args.
+    before_all setup => sub {
 
-    # 4th args, romaji can be lower case
-    my $w = Data::Gimei::Word->new( [ '鈴木', 'すずき', 'スズキ', 'suzuki' ] );
+        # 4th args, romaji can be lower case
+        $word = Data::Gimei::Word->new( [ '佐藤', 'さとう', 'サトウ', 'sato' ] );
+    };
 
-    is $w->kanji,    '鈴木';
-    is $w->hiragana, 'すずき';
-    is $w->katakana, 'スズキ';
-    is $w->romaji,   'Suzuki';    # romaji capitalize initial char.
-}
+    it "to_s method" => sub {
+        is $word->to_s, '佐藤, さとう, サトウ, Sato',
+          'returns comma separated string with captialized romaji';
+    };
 
+    it "Normal case" => sub {
+        is $word->kanji,    '佐藤',   'kanji() returns kanji';
+        is $word->hiragana, 'さとう',  'hiragana() returns hiragana';
+        is $word->katakana, 'サトウ',  'katakana() returns katakana';
+        is $word->romaji,   'Sato', 'romaji() returns capitalized romaji';
+    };
+};
 done_testing;

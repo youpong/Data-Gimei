@@ -36,6 +36,6 @@ sub to_s {
     my $self = shift;
 
     return sprintf( "%s, %s, %s, %s",
-        $self->kanji, $self->hiragana, $self->katakana, $self->romaji );
+        $self->kanji, $self->hiragana, $self->katakana, $self->romaji // '' );
 }
 1;

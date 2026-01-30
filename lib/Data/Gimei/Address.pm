@@ -17,7 +17,7 @@ use Class::Tiny qw(
 #
 # Package variables
 #
-our $addresses;  # loaded address data
+our $addresses;    # loaded address data
 
 #
 # Class methods

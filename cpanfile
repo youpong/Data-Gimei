@@ -27,5 +27,6 @@ on develop => sub {
 };
 
 on test => sub {
-    requires 'Test2::Bundle::More';
+    requires 'Test2::Tools::Spec';
+    requires 'Test2::V0';
 };
