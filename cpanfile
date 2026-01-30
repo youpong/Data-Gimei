@@ -2,6 +2,7 @@ requires 'perl', '5.010';
 
 requires 'Class::Tiny';
 requires 'File::Share';
+requires 'List::Util', '>= 1.33';    # for any function
 requires 'version';
 requires 'YAML::XS';
 
