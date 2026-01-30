@@ -29,9 +29,10 @@ describe "Data::Gimei deterministic random test" => sub {
 
     it "different seed generates different result" => sub {
         Data::Gimei::set_random_seed( $seed + 1 );      # different seed
-        T2->isnt( Data::Gimei::Name->new()->to_s,    shift(@expected)->to_s, "Name 1" );
-        T2->isnt( Data::Gimei::Name->new()->to_s,    shift(@expected)->to_s, "Name 2" );
-        T2->isnt( Data::Gimei::Address->new()->to_s, shift(@expected)->to_s, "Address 1" );
+        T2->isnt( Data::Gimei::Name->new()->to_s, shift(@expected)->to_s, "Name 1" );
+        T2->isnt( Data::Gimei::Name->new()->to_s, shift(@expected)->to_s, "Name 2" );
+        T2->isnt( Data::Gimei::Address->new()->to_s, shift(@expected)->to_s,
+            "Address 1" );
     };
 
     it "SHOULD NOT depend on calling rand()" => sub {

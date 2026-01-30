@@ -15,7 +15,8 @@ describe "Data::Gimei random functions" => sub {
         my @arr    = ( 1, 2, 3, 4, 5 );
         my $sample = Data::Gimei::sample( \@arr );
 
-        T2->ok( ( any { $_ == $sample } @arr ), 'returns a random element from the array' );
+        T2->ok( ( any { $_ == $sample } @arr ),
+            'returns a random element from the array' );
     };
 
     it "Deterministic random test" => sub {
