@@ -11,6 +11,10 @@ use Class::Tiny qw (
   romaji
 );
 
+#
+# Class methods
+#
+
 sub BUILDARGS {
     my ( $class, $aref ) = @_;
 
@@ -23,6 +27,10 @@ sub BUILDARGS {
 
     return \%args;
 }
+
+#
+# Instance methods
+#
 
 sub to_s {
     my $self = shift;

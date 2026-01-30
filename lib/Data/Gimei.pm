@@ -13,6 +13,10 @@ use Data::Gimei::Random;
 
 my $r = Data::Gimei::Random->new;
 
+#
+# Package methods
+#
+
 sub set_random_seed {
     my $seed = shift;
     $r->set_seed($seed);
