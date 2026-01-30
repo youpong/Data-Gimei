@@ -2,7 +2,6 @@ requires 'perl', '5.010';
 
 requires 'Class::Tiny';
 requires 'File::Share';
-requires 'List::Util', '>= 1.33';    # for any function
 requires 'version';
 requires 'YAML::XS';
 
@@ -28,5 +27,6 @@ on develop => sub {
 };
 
 on test => sub {
+    requires 'List::Util', '>= 1.33';    # for any function
     requires 'Test2::V1';
 };
