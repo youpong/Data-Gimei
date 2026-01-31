@@ -36,5 +36,5 @@ $ carton exec minil release
 ## Docker
 ```bash
 $ docker build -t gimei .
-$ docer run --rm -it -v$PWD:/gimei gimei bash -l
+$ docker run --rm -it -v$PWD:/gimei gimei bash -l
 ```

@@ -22,13 +22,13 @@ class Formatter {
         chomp @files;
         foreach my $f (@files) {
             if ( any { $f =~ $_ } @patterns ) {
-                $self->format($f);
+                $self->_format($f);
             }
         }
         say "Done $#files files.";
     }
 
-    method format($file) {
+    method _format($file) {
         my $perltidyrc = File::Spec->catfile( $root_dir, '.perltidyrc' );
 
         my $error = Perl::Tidy::perltidy(
