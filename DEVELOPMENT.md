@@ -43,8 +43,9 @@ against the built artifacts.(this project does not generate blib/arch)
 
 #### How to Test only the specified test files
 ```bash
-$ carton exec -- prove -b t/address.t
+$ carton exec -- prove -bv t/address.t
 ```
+`-v` option print all test lines.
 
 ### perldoc modules in local/
 ```bash
@@ -58,7 +59,7 @@ $ carton exec -- reply -Iblib/lib
 
 ### How to Debug
 ```bash
-$ carton exec perl -Iblib/lib -d t/address.t
+$ carton exec -- perl -Iblib/lib -d t/address.t
 ```
 
 You can stop execution by adding the following line.
