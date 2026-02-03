@@ -4,7 +4,6 @@ use warnings;
 use utf8;
 
 use Data::Gimei;
-Data::Gimei::Address::load('t/addresses.yml');
 
 use Test2::V1 -utf8;
 use Test2::Tools::Spec;
@@ -12,6 +11,7 @@ use Test2::Tools::Spec;
 describe "Data::Gimei::Address" => sub {
     my ($addr);
     before_all setup => sub {
+        Data::Gimei::Address::load('t/addresses.yml');
         $addr = Data::Gimei::Address->new();
     };
 
