@@ -27,6 +27,6 @@ on develop => sub {
 };
 
 on test => sub {
-    requires 'List::Util', '>= 1.33';    # for any function
+    requires 'List::Util', '>= 1.33';    # for "any" function
     requires 'Test2::V1';
 };

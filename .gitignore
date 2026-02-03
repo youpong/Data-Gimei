@@ -17,3 +17,6 @@
 blib/
 local/
 vendor/
+
+# yath
+/.*.local-yath-persist.json
